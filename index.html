@@ -5,300 +5,236 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>浦希 XI.Pu | 软件与数据作品集</title>
 <meta name="description" content="浦希（XI.Pu）的作品集：西交利物浦大学人工智能专业大三学生，关注软件开发与数据分析。记录项目背景、个人贡献、验证结果与局限。">
-<meta name="theme-color" content="#f3f0e8">
+<meta name="theme-color" content="#e8edf7">
 <link rel="canonical" href="https://cycy408.github.io/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="浦希 XI.Pu | 软件与数据作品集">
-<meta property="og:description" content="把复杂问题，做成可用的产品。西交利物浦大学人工智能专业大三，寻找软件开发 / 数据分析实习。">
+<meta property="og:description" content="把复杂问题，做成能跑的产品。西交利物浦大学人工智能专业大三，寻找软件开发 / 数据分析实习。">
 <meta property="og:url" content="https://cycy408.github.io/">
 <meta property="og:image" content="https://cycy408.github.io/assets/transition-overview.png">
 <style>
 :root{
-  --paper:#f3f0e8;
-  --paper-2:#eae6db;
-  --card:#fffdf8;
-  --ink:#111b22;
-  --muted:#60707a;
-  --line:#d8d2c4;
-  --line-dark:#bdb5a4;
-  --blue:#1f4fff;
-  --blue-dark:#163bc4;
-  --orange:#f36b3c;
-  --orange-soft:#ffe3d6;
-  --navy:#0c1724;
-  --lime:#d8ff3e;
-  --max:1180px;
-  --radius:14px;
-  --mono:ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",monospace;
+  --bg:#e8edf7;
+  --surface:#ffffff;
+  --soft:#f4f7ff;
+  --ink:#121a2e;
+  --muted:#5c6980;
+  --blue:#2e4bff;
+  --blue-dark:#1d34c9;
+  --blue-soft:#dfe6ff;
+  --yellow:#ffe45e;
+  --navy:#151d3a;
+  --line:#c8d2e6;
+  --max:1120px;
   --sans:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:100px}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
 body{
   margin:0;
   color:var(--ink);
-  background:var(--paper);
-  font:17px/1.72 var(--sans);
+  background:var(--bg);
+  font:17px/1.68 var(--sans);
   -webkit-font-smoothing:antialiased;
   overflow-x:hidden;
 }
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  z-index:-1;
-  background-image:
-    linear-gradient(rgba(17,27,34,.035) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(17,27,34,.035) 1px,transparent 1px);
-  background-size:80px 80px;
-  mask-image:linear-gradient(to bottom,black 0%,transparent 72%);
-}
-::selection{background:var(--lime);color:var(--ink)}
 a{color:inherit;text-underline-offset:4px}
 a:hover{color:var(--blue)}
-a:focus-visible,summary:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-offset:4px}
+a:focus-visible,summary:focus-visible,button:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
 img{display:block;max-width:100%;height:auto}
 p{margin:0 0 18px}
-.wrap{width:min(var(--max),calc(100% - 64px));margin-inline:auto}
+.wrap{width:min(var(--max),calc(100% - 56px));margin-inline:auto}
 .skip-link{position:absolute;left:-9999px;top:0;background:var(--ink);color:#fff;padding:10px 16px;z-index:200}
 .skip-link:focus{left:16px;top:16px}
-.mono{font-family:var(--mono);font-size:11px;letter-spacing:1.2px;text-transform:uppercase}
 .muted{color:var(--muted)}
 
-/* ---------- top bar ---------- */
-.topline{border-bottom:1px solid var(--line);background:rgba(243,240,232,.88);backdrop-filter:blur(12px)}
-.topline .wrap{display:flex;justify-content:space-between;gap:20px;padding:9px 0}
-.topline span:last-child{color:var(--muted)}
-header{position:sticky;top:0;z-index:80;background:rgba(243,240,232,.92);border-bottom:1px solid var(--line);backdrop-filter:blur(14px)}
-nav{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:17px 0;min-width:0}
-.brand{display:flex;align-items:baseline;gap:10px;text-decoration:none;font-weight:850;letter-spacing:-.4px}
-.brand b{font-size:18px}
-.brand span{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:1.4px;color:var(--muted)}
-.links{display:flex;align-items:center;gap:26px;font-size:14px;min-width:0;flex-wrap:wrap}
-.links a{text-decoration:none;color:var(--ink);position:relative}
-.links a::after{content:"";position:absolute;left:0;right:100%;bottom:-5px;height:2px;background:var(--blue);transition:right .2s ease}
-.links a:hover::after{right:0}
-.links a.nav-cta{border:1px solid var(--ink);border-radius:99px;padding:7px 13px;background:var(--ink);color:var(--paper)}
-.links a.nav-cta:hover{background:var(--blue);border-color:var(--blue);color:#fff}
-.links a.nav-cta::after{display:none}
+header{position:sticky;top:0;z-index:80;background:rgba(232,237,247,.9);border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
+nav{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:18px 0;min-width:0}
+.brand{display:flex;align-items:baseline;gap:10px;text-decoration:none;font-weight:900;letter-spacing:-.5px}
+.brand b{font-size:19px}
+.brand span{font-size:11px;font-weight:650;letter-spacing:.3px;color:var(--muted)}
+.links{display:flex;align-items:center;gap:24px;font-size:14px;min-width:0;flex-wrap:wrap}
+.links a{text-decoration:none;color:var(--ink);padding:5px 0;border-bottom:1px solid transparent}
+.links a:hover{border-color:var(--blue)}
+.links a.resume{background:var(--ink);color:var(--bg);border:1px solid var(--ink);padding:7px 13px;border-radius:2px}
+.links a.resume:hover{background:var(--blue);border-color:var(--blue);color:#fff}
 
-/* ---------- shared labels ---------- */
-.kicker{display:flex;align-items:center;gap:12px;color:var(--blue);font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase}
-.kicker::before{content:"";width:28px;height:1px;background:var(--blue)}
-.section{padding:82px 0;border-top:1px solid var(--line)}
-.section-head{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:40px;align-items:end;margin-bottom:34px}
-.section-head h2{font-size:clamp(32px,4.5vw,56px);line-height:1.08;letter-spacing:-2.2px;margin:10px 0 0}
-.section-head p{margin:0;max-width:520px}
-.section-head > *{min-width:0}
-
-/* ---------- hero ---------- */
-.hero{padding:70px 0 62px;display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:54px;align-items:center}
+.hero{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:54px;align-items:center;padding:76px 0 70px}
 .hero > *{min-width:0}
-.hero-status{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:22px}
-.status-pill{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);border-radius:99px;background:var(--card);padding:6px 11px;font-family:var(--mono);font-size:10px;letter-spacing:.7px;color:var(--muted)}
-.status-pill i{width:7px;height:7px;border-radius:50%;background:#21a363;box-shadow:0 0 0 3px rgba(33,163,99,.13)}
-h1{font-size:clamp(48px,7.4vw,92px);line-height:.98;letter-spacing:-4.8px;margin:0 0 26px;font-weight:850;text-wrap:balance}
-h1 .accent{color:var(--blue);position:relative;white-space:nowrap;z-index:0}
-h1 .accent::after{content:"";position:absolute;left:0;right:-2px;bottom:7px;height:9px;background:var(--lime);z-index:-1;transform:rotate(-1deg)}
-.hero .lead{font-size:18px;line-height:1.75;max-width:610px;color:var(--muted)}
-.hero-actions{display:flex;flex-wrap:wrap;gap:11px;margin-top:28px}
-.btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;border-radius:99px;padding:12px 19px;font-size:14px;font-weight:750;border:1px solid transparent;transition:transform .18s ease,background .18s ease,color .18s ease}
-.btn:hover{transform:translateY(-2px)}
-.btn.primary{background:var(--blue);color:#fff}
-.btn.primary:hover{background:var(--blue-dark);color:#fff}
-.btn.ghost{border-color:var(--line-dark);background:transparent;color:var(--ink)}
-.btn.ghost:hover{background:var(--card);color:var(--blue)}
-.btn .arrow{font-size:17px;line-height:1}
-.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:38px;padding-top:20px;border-top:1px solid var(--line);max-width:520px}
-.hero-stats strong{display:block;font-size:27px;line-height:1;letter-spacing:-1.4px}
-.hero-stats span{display:block;margin-top:7px;font-family:var(--mono);font-size:10px;letter-spacing:.8px;color:var(--muted);text-transform:uppercase}
-.hero-visual{position:relative;padding:12px 0 12px 12px}
-.hero-visual::before{content:"";position:absolute;inset:13% -5% -4% 13%;background:var(--orange-soft);border:1px solid #f4c5b1;border-radius:18px;transform:rotate(2.2deg);z-index:0}
-.browser{position:relative;z-index:1;background:var(--card);border:1px solid var(--line-dark);border-radius:14px;padding:8px;box-shadow:0 24px 70px rgba(17,27,34,.16);transform:rotate(-1.3deg)}
-.browser-bar{display:flex;align-items:center;gap:5px;height:28px;padding:0 6px}
-.browser-bar i{width:6px;height:6px;border-radius:50%;background:var(--line-dark)}
-.browser-bar i:first-child{background:var(--orange)}
-.browser-bar span{margin-left:8px;font-family:var(--mono);font-size:9px;letter-spacing:.5px;color:var(--muted)}
-.browser img{width:100%;border-radius:8px;aspect-ratio:1440/1000;object-fit:cover;object-position:top left}
-.hero-caption{display:flex;justify-content:space-between;gap:16px;margin-top:16px;font-family:var(--mono);font-size:10px;letter-spacing:.6px;color:var(--muted);text-transform:uppercase}
-.hero-caption span:last-child{text-align:right}
+.hero-head{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;margin-bottom:22px;font-size:13px;color:var(--muted)}
+.hero-head .name{font-weight:850;color:var(--ink)}
+.hero-head .available{display:inline-flex;align-items:center;gap:7px}
+.hero-head .available::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 3px var(--blue-soft)}
+h1{font-size:clamp(44px,5.3vw,74px);line-height:1;letter-spacing:-3.6px;margin:0 0 26px;font-weight:900}
+.hero-intro{max-width:610px;font-size:18px;line-height:1.75;color:var(--muted)}
+.hero h1 .line{white-space:nowrap}
+.hero-links{display:flex;flex-wrap:wrap;align-items:center;gap:20px;margin-top:29px}
+.action{display:inline-block;text-decoration:none;font-weight:800;font-size:14px;padding:11px 17px;border-radius:2px;background:var(--blue);color:#fff;border:1px solid var(--blue)}
+.action:hover{background:var(--blue-dark);border-color:var(--blue-dark);color:#fff}
+.text-link{font-size:14px;font-weight:750;text-decoration:none;border-bottom:2px solid var(--yellow);padding-bottom:3px}
+.hero-note{margin-top:42px;font-size:13px;color:var(--muted);max-width:520px}
+.hero-figure{margin:0;position:relative;padding:18px 0 0 18px}
+.hero-figure::before{content:"";position:absolute;inset:0 0 18px 0;background:var(--blue);border-radius:3px}
+.hero-figure figure{margin:0;position:relative;background:var(--surface);border:1px solid var(--ink);padding:9px}
+.hero-figure img{width:100%;aspect-ratio:1440/1000;object-fit:cover;object-position:top left}
+.hero-figure figcaption{display:flex;justify-content:space-between;gap:16px;padding:11px 0 1px;font-size:12px;color:var(--muted)}
+.hero-figure figcaption b{color:var(--ink)}
 
-/* ---------- skills ticker ---------- */
-.ticker{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;background:var(--paper-2)}
-.ticker .wrap{display:flex;align-items:center;gap:18px;padding:12px 0;white-space:nowrap;overflow:hidden}
-.ticker-label{color:var(--orange);font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:1px;flex:0 0 auto}
-.ticker-track{display:flex;gap:24px;font-family:var(--mono);font-size:10px;letter-spacing:1.4px;color:var(--muted);text-transform:uppercase;min-width:0;overflow:hidden}
-.ticker-track span{flex:0 0 auto}
-.ticker-track span::after{content:"/";margin-left:24px;color:var(--line-dark)}
+.section{padding:92px 0;border-top:1px solid var(--line)}
+.section-head{display:grid;grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr);gap:44px;align-items:start;margin-bottom:36px}
+.section-head > *{min-width:0}
+.section-label{font-size:13px;font-weight:800;color:var(--blue);margin:0 0 12px}
+.section-head h2{font-size:clamp(34px,4.8vw,60px);line-height:1.03;letter-spacing:-2.9px;margin:0;font-weight:900;max-width:540px}
+.section-head .intro{font-size:16px;max-width:580px;color:var(--muted);margin:3px 0 0}
 
-/* ---------- project ---------- */
-.project{background:var(--card);border:1px solid var(--line-dark);border-radius:var(--radius);box-shadow:0 20px 60px rgba(17,27,34,.07);overflow:hidden}
-.project-head{padding:32px 34px 26px;border-bottom:1px solid var(--line);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:start}
-.project-head > *{min-width:0}
-.project-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
-.tag{display:inline-block;border:1px solid #c9d4f7;background:#edf1ff;color:var(--blue);border-radius:99px;padding:4px 9px;font-family:var(--mono);font-size:9px;letter-spacing:.8px;text-transform:uppercase}
-.project-status{font-family:var(--mono);font-size:10px;letter-spacing:.6px;color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:6px 10px;white-space:nowrap}
-.project h3{font-size:clamp(27px,3.4vw,43px);line-height:1.12;letter-spacing:-1.8px;margin:0 0 12px;max-width:780px}
-.project-goal{max-width:790px;color:var(--muted);font-size:17px;margin:0}
-.project-body{padding:30px 34px 34px}
-.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-bottom:28px}
-.fact{padding:18px 20px;border-right:1px solid var(--line);min-width:0}
-.fact:last-child{border-right:0}
-.fact dt{font-family:var(--mono);font-size:9px;letter-spacing:1px;color:var(--muted);text-transform:uppercase;margin-bottom:7px}
-.fact dd{margin:0;font-size:14px;line-height:1.55;overflow-wrap:anywhere}
-.fact dd strong{font-weight:800}
-.project-banner{border:1px solid var(--line-dark);border-radius:10px;overflow:hidden;background:var(--navy);margin:0 0 28px}
-.project-banner .browser-bar{background:var(--navy);padding:0 10px}
-.project-banner .browser-bar span{color:#91a2b2}
-.project-banner .browser-bar i{background:#455466}
-.project-banner img{width:100%;aspect-ratio:1440/1000;object-fit:cover;object-position:top left}
-.project-copy{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:38px;align-items:start}
-.project-copy > *{min-width:0}
-.project-copy p{color:var(--muted);font-size:15px}
-.role-note{background:#f7f4ec;border-left:3px solid var(--orange);padding:16px 18px;font-size:14px;color:var(--ink);margin:0 0 20px}
-.role-note strong{display:block;font-family:var(--mono);font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--orange);margin-bottom:5px}
-.details{border-top:1px solid var(--line);margin-top:22px;padding-top:16px}
-summary{display:flex;justify-content:space-between;align-items:center;gap:16px;cursor:pointer;list-style:none;font-weight:750;color:var(--blue);font-size:14px}
+/* project */
+.project-section{background:var(--surface)}
+.project-frame{border:1px solid var(--ink);background:var(--soft)}
+.project-top{display:grid;grid-template-columns:minmax(0,1.32fr) minmax(0,.68fr);border-bottom:1px solid var(--line)}
+.project-top > *{min-width:0}
+.project-main{margin:0;padding:24px;background:var(--surface);border-right:1px solid var(--line)}
+.project-main img{width:100%;aspect-ratio:1440/1000;object-fit:cover;object-position:top left;border:1px solid var(--line)}
+.project-main figcaption{font-size:12px;color:var(--muted);padding-top:10px}
+.project-side{padding:28px 26px;display:flex;flex-direction:column;justify-content:space-between;gap:26px}
+.project-side h3{font-size:30px;line-height:1.13;letter-spacing:-1.4px;margin:0 0 12px;font-weight:900}
+.project-side .summary{font-size:15px;color:var(--muted);margin:0}
+.project-meta{display:grid;gap:0;margin:0}
+.project-meta div{padding:12px 0;border-top:1px solid var(--line)}
+.project-meta dt{font-size:11px;font-weight:800;color:var(--blue);margin-bottom:4px}
+.project-meta dd{margin:0;font-size:14px;line-height:1.55}
+.project-bottom{padding:28px 26px;display:grid;grid-template-columns:1.05fr .95fr;gap:42px}
+.project-bottom > *{min-width:0}
+.project-copy p{font-size:15px;color:var(--muted)}
+.project-copy .lede{font-size:17px;color:var(--ink);line-height:1.65}
+.project-points{display:grid;grid-template-columns:1fr 1fr;gap:0 28px;border-top:1px solid var(--line);margin-top:22px}
+.project-points div{padding:15px 0;border-bottom:1px solid var(--line)}
+.project-points h4{font-size:14px;line-height:1.4;margin:0 0 5px;font-weight:850}
+.project-points p{font-size:13px;line-height:1.6;margin:0}
+.project-gallery{display:grid;gap:14px}
+.project-gallery figure{margin:0;background:var(--surface);border:1px solid var(--line);padding:7px}
+.project-gallery img{width:100%;aspect-ratio:1440/1000;object-fit:cover;object-position:top left}
+.project-gallery figcaption{font-size:11px;color:var(--muted);padding:8px 1px 0}
+.project-gallery figure:nth-child(2){margin-left:32px;margin-right:-8px}
+.details{border-top:1px solid var(--line);padding-top:16px;margin-top:24px}
+summary{display:flex;align-items:center;justify-content:space-between;gap:18px;list-style:none;cursor:pointer;font-size:14px;font-weight:850;color:var(--blue)}
 summary::-webkit-details-marker{display:none}
-summary::after{content:"+";font-size:22px;font-weight:400;line-height:1;color:var(--blue)}
+summary::after{content:"+";font-size:23px;font-weight:400;line-height:1;color:var(--blue)}
 details[open] summary::after{content:"−"}
-.details-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px 26px;padding-top:20px}
-.detail-block h4{font-family:var(--mono);font-size:9px;letter-spacing:1px;color:var(--orange);text-transform:uppercase;margin:0 0 5px}
-.detail-block p{margin:0;color:var(--muted);font-size:14px}
-.gallery{display:grid;grid-template-columns:1fr;gap:16px;margin-top:0}
-.gallery figure{margin:0;background:#f7f4ec;border:1px solid var(--line);border-radius:9px;padding:7px}
-.gallery img{width:100%;aspect-ratio:1440/1000;object-fit:cover;object-position:top left;border-radius:5px}
-figcaption{font-family:var(--mono);font-size:9px;letter-spacing:.5px;color:var(--muted);padding:8px 2px 0;text-transform:uppercase}
-.project-foot{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;margin-top:24px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
-.project-foot a{font-weight:750}
+.details-body{display:grid;grid-template-columns:1fr 1fr;gap:16px 26px;padding-top:20px}
+.details-body h4{font-size:12px;font-weight:850;color:var(--blue);margin:0 0 4px}
+.details-body p{font-size:13px;line-height:1.65;color:var(--muted);margin:0}
+.project-footer{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;padding:16px 26px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+.project-footer a{font-weight:800}
 
-/* ---------- about ---------- */
-.about-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:30px;align-items:start}
+/* about */
+.about-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:56px;align-items:start}
 .about-grid > *{min-width:0}
-.about p{max-width:720px}
-.about p:first-child{font-size:19px;line-height:1.72;color:var(--ink)}
-.about p + p{color:var(--muted)}
-.about-card{background:var(--card);border:1px solid var(--line-dark);border-radius:var(--radius);padding:25px}
-.about-card h3{font-size:17px;margin:0 0 15px;letter-spacing:-.3px}
-.skills{display:flex;flex-wrap:wrap;gap:7px;margin:0;padding:0;list-style:none}
-.skills li{border:1px solid var(--line);border-radius:6px;background:#f8f5ee;padding:5px 8px;font-family:var(--mono);font-size:10px;letter-spacing:.4px}
-.education{border-top:1px solid var(--line);margin-top:20px;padding-top:18px;display:grid;gap:5px;font-size:13px;color:var(--muted)}
-.education strong{color:var(--ink);font-size:14px}
-.education span{font-family:var(--mono);font-size:10px;letter-spacing:.5px}
-.next-note{margin-top:20px;background:var(--lime);border-radius:8px;padding:13px 15px;font-size:13px;line-height:1.55;color:var(--ink)}
+.about-copy p{max-width:690px;font-size:16px;color:var(--muted)}
+.about-copy p:first-child{font-size:19px;line-height:1.7;color:var(--ink)}
+.pullquote{border-left:4px solid var(--yellow);padding:5px 0 5px 18px;margin:30px 0;font-family:Georgia,"Songti SC",serif;font-size:21px;line-height:1.55;color:var(--ink)}
+.about-facts{border-top:1px solid var(--ink)}
+.about-facts div{display:grid;grid-template-columns:100px 1fr;gap:18px;padding:15px 0;border-bottom:1px solid var(--line)}
+.about-facts dt{font-size:12px;font-weight:850;color:var(--blue)}
+.about-facts dd{margin:0;font-size:14px;line-height:1.6;color:var(--muted)}
+.about-facts dd strong{color:var(--ink);font-weight:800}
+.skills{font-size:14px;line-height:1.8;margin:0}
+.skills span{display:inline-block;margin:0 8px 2px 0}
+.skills span::after{content:"/";color:var(--line);margin-left:8px}
+.skills span:last-child::after{display:none}
+.next-project{background:var(--yellow);border:1px solid var(--ink);padding:15px 17px;font-size:13px;line-height:1.6;margin-top:24px}
 
-/* ---------- contact ---------- */
-.contact-panel{background:var(--navy);color:#f7f4ec;border-radius:var(--radius);padding:38px;position:relative;overflow:hidden}
-.contact-panel::before{content:"";position:absolute;right:-70px;top:-90px;width:280px;height:280px;border:1px solid rgba(216,255,62,.35);border-radius:50%}
-.contact-panel::after{content:"";position:absolute;right:20px;bottom:-90px;width:220px;height:220px;border:1px solid rgba(31,79,255,.55);border-radius:50%}
-.contact-panel .kicker{color:var(--lime)}
-.contact-panel .kicker::before{background:var(--lime)}
-.contact-panel h2{font-size:clamp(30px,4.4vw,52px);line-height:1.08;letter-spacing:-2px;margin:12px 0 18px;max-width:720px}
-.contact-panel p{color:#aab7c4;max-width:560px}
-.contact-links{position:relative;z-index:1;display:grid;grid-template-columns:1.2fr .8fr .8fr;gap:10px;margin-top:28px}
-.contact-link{display:flex;flex-direction:column;justify-content:space-between;gap:12px;min-height:82px;text-decoration:none;border:1px solid rgba(247,244,236,.22);border-radius:9px;padding:14px 15px;color:#f7f4ec;transition:background .18s ease,border-color .18s ease}
-.contact-link:hover{background:rgba(247,244,236,.08);border-color:rgba(247,244,236,.5);color:#fff}
-.contact-link small{font-family:var(--mono);font-size:9px;letter-spacing:1px;color:#93a4b1;text-transform:uppercase}
-.contact-link strong{font-size:14px;overflow-wrap:anywhere}
-.contact-meta{position:relative;z-index:1;margin-top:24px;font-family:var(--mono);font-size:10px;letter-spacing:.5px;color:#8193a2}
+/* contact */
+.contact-section{background:var(--navy);color:#f2f5ff;border-top:1px solid var(--navy)}
+.contact-section .section-label{color:var(--yellow)}
+.contact-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:56px;align-items:start}
+.contact-grid > *{min-width:0}
+.contact-grid h2{font-size:clamp(39px,5.4vw,72px);line-height:1;letter-spacing:-3.3px;margin:0;font-weight:900;color:#f2f5ff}
+.contact-grid .intro{color:#a8b3c8;max-width:430px;margin-top:20px}
+.contact-list{display:grid;border-top:1px solid #3a4564}
+.contact-list a{display:flex;justify-content:space-between;align-items:center;gap:20px;text-decoration:none;color:#f2f5ff;padding:17px 0;border-bottom:1px solid #3a4564}
+.contact-list a:hover{color:var(--yellow)}
+.contact-list span{font-size:12px;color:#95a1b8}
+.contact-list strong{font-size:16px;overflow-wrap:anywhere}
+.contact-note{font-size:12px;color:#7f8ba3;margin-top:22px}
 
-/* ---------- footer ---------- */
-footer{padding:26px 0;border-top:1px solid var(--line);color:var(--muted);font-size:12px}
+footer{padding:24px 0;background:var(--navy);border-top:1px solid #2b3552;color:#8f9bb1;font-size:12px}
 footer .wrap{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
-footer a{color:var(--ink)}
+footer a{color:#dbe2f1}
 
 @media(max-width:900px){
-  .hero{grid-template-columns:minmax(0,1fr);gap:36px;padding:48px 0 44px}
-  .hero-visual{padding:0;max-width:680px}
-  .section-head,.project-copy,.about-grid{grid-template-columns:minmax(0,1fr);gap:24px}
-  .facts{grid-template-columns:1fr 1fr}
-  .fact:nth-child(2){border-right:0}
-  .fact:nth-child(3){grid-column:1/-1;border-top:1px solid var(--line)}
-  .contact-links{grid-template-columns:1fr 1fr}
-  .contact-link:first-child{grid-column:1/-1}
+  .hero{grid-template-columns:minmax(0,1fr);gap:38px;padding:54px 0 50px}
+  .hero-figure{max-width:680px}
+  .section-head,.project-top,.project-bottom,.about-grid,.contact-grid{grid-template-columns:minmax(0,1fr);gap:28px}
+  .project-main{border-right:0;border-bottom:1px solid var(--line)}
+  .project-side{gap:22px}
+  .project-gallery{grid-template-columns:1fr 1fr}
+  .project-gallery figure:nth-child(2){margin:0}
+  .contact-grid .intro{margin-top:0}
+}
+@media(max-width:360px){
+  .hero h1 .line{white-space:normal}
 }
 @media(max-width:700px){
   body{font-size:16px}
   .wrap{width:calc(100% - 36px)}
-  .topline .wrap{padding:7px 0}
-  .topline span:last-child{display:none}
-  nav{padding:12px 0;align-items:flex-start}
-  .brand{font-size:15px;flex-direction:column;gap:1px;line-height:1.3}
-  .brand b{font-size:16px}
-  .links{gap:13px;font-size:13px;justify-content:flex-end}
-  .links a.nav-cta{padding:5px 10px}
-  h1{font-size:clamp(38px,10.8vw,52px);letter-spacing:-1.9px;line-height:1.04}
-  h1 .accent{white-space:nowrap}
-  .hero .lead{font-size:16px}
-  .hero-stats{gap:10px;margin-top:28px}
-  .hero-stats strong{font-size:23px}
-  .hero-stats span{font-size:9px}
-  .browser{transform:none}
-  .hero-visual::before{inset:10% -2% -2% 8%}
-  .hero-caption{display:block;line-height:1.6}
-  .hero-caption span:last-child{display:none}
-  .section{padding:52px 0}
-  .section-head h2{font-size:35px;letter-spacing:-1.5px}
-  .project-head{padding:22px 20px 20px;grid-template-columns:1fr}
-  .project-status{justify-self:start}
-  .project-body{padding:22px 20px 24px}
-  .project h3{font-size:28px;letter-spacing:-1.1px}
-  .project-goal{font-size:15px}
-  .facts{grid-template-columns:1fr}
-  .fact,.fact:nth-child(2),.fact:nth-child(3){border-right:0;border-top:1px solid var(--line)}
-  .fact:first-child{border-top:0}
-  .details-grid,.gallery{grid-template-columns:1fr}
-  .gallery{gap:12px}
-  .contact-panel{padding:26px 20px;border-radius:11px}
-  .contact-panel h2{font-size:34px;letter-spacing:-1.2px}
-  .contact-links{grid-template-columns:1fr}
-  .contact-link:first-child{grid-column:auto}
-  .contact-link{min-height:70px}
-  .ticker .wrap{gap:10px 14px;white-space:normal;flex-wrap:wrap;align-items:flex-start}
-  .ticker-track{flex-wrap:wrap;white-space:normal;overflow:visible;row-gap:5px;column-gap:8px;font-size:9px;line-height:1.7}
-  .ticker-track span::after{margin-left:8px}
+  nav{padding:13px 0;align-items:flex-start}
+  .brand{flex-direction:column;gap:1px;line-height:1.25}
+  .brand b{font-size:17px}
+  .links{gap:12px;font-size:13px;justify-content:flex-end}
+  .links a.resume{padding:5px 9px}
+  h1{font-size:clamp(41px,12vw,58px);letter-spacing:-2.8px;line-height:1.02}
+  .hero{padding:42px 0 46px}
+  .hero-intro{font-size:16px}
+  .hero-note{display:none}
+  .hero-figure{padding:12px 0 0 12px}
+  .section{padding:58px 0}
+  .section-head{gap:16px;margin-bottom:26px}
+  .section-head h2{font-size:38px;letter-spacing:-1.8px}
+  .section-head .intro{font-size:15px}
+  .project-main,.project-side,.project-bottom{padding:18px}
+  .project-side h3{font-size:27px}
+  .project-points,.details-body{grid-template-columns:1fr}
+  .project-gallery{grid-template-columns:1fr}
+  .project-footer{padding:14px 18px}
+  .about-grid{gap:30px}
+  .about-copy p:first-child{font-size:17px}
+  .pullquote{font-size:18px;margin:22px 0}
+  .about-facts div{grid-template-columns:82px 1fr;gap:12px}
+  .contact-grid{gap:28px}
+  .contact-grid h2{font-size:44px;letter-spacing:-2px}
+  .contact-list a{padding:14px 0}
 }
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  *,*::before,*::after{animation:none!important;transition:none!important}
-  .btn:hover{transform:none}
+  *,*::before,*::after{transition:none!important}
 }
 @media print{
-  body{background:#fff;font-size:12pt}
-  body::before,header,.topline,.hero-visual,.ticker,.hero-actions,.contact-panel::before,.contact-panel::after{display:none}
+  header,.hero-figure,.hero-links,.project-gallery,.contact-section{display:none}
+  body{background:#fff;color:#000;font-size:12pt}
   .wrap{width:100%}
   .hero{padding:0}
-  .section{border-top:0;padding:16pt 0}
-  .project,.about-card,.contact-panel{box-shadow:none;border:0;padding:0;background:#fff;color:var(--ink)}
-  .project-head,.project-body{padding:10pt 0}
-  .contact-panel p,.contact-panel h2{color:var(--ink)}
-  .contact-link{color:var(--ink);border-color:#ccc}
+  .section{padding:16pt 0;border-top:0}
+  .project-frame{border:0}
+  .project-top,.project-bottom{display:block;padding:0}
+  .project-main,.project-side{padding:0;border:0}
+  .project-main img{display:none}
   summary{display:none}
-  details .details-grid{display:grid!important;padding-top:8pt}
-  .gallery{display:none}
+  .details-body{display:grid!important;padding-top:0}
 }
 </style>
 </head>
 <body>
 <a class="skip-link" href="#main">跳到主要内容</a>
 
-<div class="topline">
-  <div class="wrap mono">
-    <span>PORTFOLIO / 2026 · XI.PU</span>
-    <span>SOFTWARE · DATA · ENGINEERING</span>
-  </div>
-</div>
-
 <header>
   <div class="wrap">
     <nav aria-label="主导航">
-      <a class="brand" href="#home"><b>浦希</b><span>XI.PU</span></a>
+      <a class="brand" href="#home"><b>浦希</b><span>XI.Pu / Portfolio 2026</span></a>
       <div class="links">
         <a href="#projects">项目</a>
         <a href="#about">关于我</a>
         <a href="#contact">联系</a>
-        <a class="nav-cta" href="assets/resume.pdf" download="浦希-简历.pdf">简历 ↓</a>
+        <a class="resume" href="assets/resume.pdf" download="浦希-简历.pdf">下载简历</a>
       </div>
     </nav>
   </div>
@@ -307,173 +243,149 @@ footer a{color:var(--ink)}
 <main id="main">
   <section id="home" class="wrap hero">
     <div>
-      <div class="hero-status">
-        <span class="status-pill"><i></i> OPEN TO INTERNSHIPS</span>
-        <span class="status-pill">XJTLU · 2024–2028</span>
+      <div class="hero-head">
+        <span class="name">浦希 / XI.Pu</span>
+        <span>西交利物浦大学 · 人工智能 · 大三</span>
+        <span class="available">寻找软件开发 / 数据分析实习</span>
       </div>
-      <div class="kicker">AI · Software · Data</div>
-      <h1>把复杂问题，<br><span class="accent">做成可用的产品。</span></h1>
-      <p class="lead">我是浦希，西交利物浦大学人工智能（智能系统方向）大三学生。我关注软件开发与数据分析，也喜欢把课程里模糊的问题拆成可以运行、可以验证的功能。</p>
-      <div class="hero-actions">
-        <a class="btn primary" href="#projects">查看主项目 <span class="arrow">↘</span></a>
-        <a class="btn ghost" href="assets/resume.pdf" download="浦希-简历.pdf">下载简历 PDF <span class="arrow">↓</span></a>
+      <h1>把复杂问题，<br><span class="line">做成能跑的产品。</span></h1>
+      <p class="hero-intro">我关注软件开发与数据分析，也喜欢把课程里模糊的问题拆成可以运行、可以验证的功能。这里放一个我参与实现的完整项目，以及我做过的取舍。</p>
+      <div class="hero-links">
+        <a class="action" href="#projects">查看主项目</a>
+        <a class="text-link" href="assets/resume.pdf" download="浦希-简历.pdf">下载简历 PDF</a>
       </div>
-      <div class="hero-stats" aria-label="项目数据">
-        <div><strong>01</strong><span>Featured project</span></div>
-        <div><strong>07</strong><span>Product surfaces</span></div>
-        <div><strong>82</strong><span>Automated tests</span></div>
-      </div>
+      <p class="hero-note">目前主要使用 Python、FastAPI 和原生 JavaScript；也在补数据分析方向的项目。</p>
     </div>
 
-    <div class="hero-visual">
-      <div class="browser">
-        <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>transition-companion / overview</span></div>
+    <div class="hero-figure">
+      <figure>
         <img src="assets/transition-overview.png" width="1440" height="1000" alt="Transition Companion 学习助手总览页面截图" fetchpriority="high">
-      </div>
-      <div class="hero-caption">
-        <span>Fig. 01 — Transition Companion</span>
-        <span>Offline-first AI study assistant</span>
-      </div>
+        <figcaption><b>Transition Companion</b><span>项目界面 / 2026</span></figcaption>
+      </figure>
     </div>
   </section>
 
-  <div class="ticker" aria-label="技术栈">
+  <section id="projects" class="section project-section">
     <div class="wrap">
-      <span class="ticker-label">STACK</span>
-      <div class="ticker-track">
-        <span>Python</span><span>FastAPI</span><span>Pydantic</span><span>Vanilla JS</span><span>JSON Store</span><span>pytest</span><span>Git</span>
-      </div>
-    </div>
-  </div>
-
-  <section id="projects" class="wrap section">
-    <div class="section-head">
-      <div>
-        <div class="kicker">01 / Selected Work</div>
-        <h2>一个项目，<br>讲完整。</h2>
-      </div>
-      <p class="muted">我更愿意把一个项目讲透：问题是什么、我做了什么、怎么验证，以及还有哪里没做好。</p>
-    </div>
-
-    <article class="project" aria-labelledby="project-title">
-      <div class="project-head">
+      <div class="section-head">
         <div>
-          <div class="project-tags">
-            <span class="tag">Team project</span>
-            <span class="tag">2026.11 — now</span>
-            <span class="tag">Full-stack</span>
-          </div>
-          <h3 id="project-title">Transition Companion<br>离线优先的 AI 学习助手</h3>
-          <p class="project-goal">上传 syllabus、课件或作业要求，提取课程术语，生成学术写作反馈，并把大作业拆成按提交日期执行的任务与学习日程。</p>
+          <p class="section-label">主项目 / Selected work</p>
+          <h2>Transition Companion</h2>
         </div>
-        <span class="project-status">IN ITERATION · SOURCE PRIVATE</span>
+        <p class="intro">一个面向英语授课课程的离线优先学习助手。队友负责原型设计和需求梳理，我负责技术方案、实现、测试和文档。</p>
       </div>
 
-      <div class="project-body">
-        <dl class="facts">
-          <div class="fact"><dt>My role</dt><dd><strong>技术方案与实现</strong><br>FastAPI 后端、原生 JS 前端、数据处理、测试与文档</dd></div>
-          <div class="fact"><dt>Team</dt><dd>队友负责原型设计与需求梳理；我负责实现和迭代验收</dd></div>
-          <div class="fact"><dt>Evidence</dt><dd><strong>82 / 82 tests</strong><br>7 个功能页面 · 30/30 规则评估 · 离线可用</dd></div>
-        </dl>
+      <article class="project-frame" aria-labelledby="project-title">
+        <div class="project-top">
+          <figure class="project-main">
+            <img src="assets/transition-tasks.png" width="1440" height="1000" alt="Transition Companion 作业拆解与日期计划页面截图" loading="lazy">
+            <figcaption>作业要求会被拆成可编辑的日期计划，并可以加入周、日、月日程。</figcaption>
+          </figure>
+          <div class="project-side">
+            <div>
+              <h3 id="project-title">离线优先的<br>AI 学习助手</h3>
+              <p class="summary">上传 syllabus、课件或作业要求，提取课程术语，生成学术写作反馈，并把大作业拆成按提交日期执行的任务与日程。</p>
+            </div>
+            <dl class="project-meta">
+              <div><dt>我的角色</dt><dd>技术方案、FastAPI 后端、原生 JS 前端、数据处理、测试与文档</dd></div>
+              <div><dt>团队分工</dt><dd>队友负责原型设计与需求梳理；我负责实现和迭代验收</dd></div>
+              <div><dt>技术栈</dt><dd>Python、FastAPI、Pydantic、原生 JavaScript、JSON Store、pytest</dd></div>
+              <div><dt>验证结果</dt><dd>7 个功能页面；82 项 pytest；30/30 条规则评估；无 API key 可离线运行主要流程</dd></div>
+            </dl>
+          </div>
+        </div>
 
-        <figure class="project-banner">
-          <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>task-breakdown / date plan</span></div>
-          <img src="assets/transition-tasks.png" width="1440" height="1000" alt="Transition Companion 作业拆解与日期计划页面截图" loading="lazy">
-        </figure>
-
-        <div class="project-copy">
-          <div>
-            <p class="role-note"><strong>What I owned</strong>从把需求变成数据结构，到把页面做出来、把测试补齐，再到把失败路径和局限写清楚。这个项目里，我主要解决的是“怎么让功能真的能跑，并且在没网、没 key 的时候也不崩”。</p>
-            <p>采用“规则引擎优先、LLM 可选”的架构：没有 API key 时，词汇、反馈、任务拆解和日程都能运行；模型失败会自动回退，并触发 60 秒熔断。文件会先提取为带页码/幻灯片标签的文本，再用于术语排序和来源引用。</p>
+        <div class="project-bottom">
+          <div class="project-copy">
+            <p class="lede">这个项目最花时间的不是把页面画出来，而是让它在“没有网络、没有 key、日期不清楚”的时候仍然给出可信的结果。</p>
+            <p>我采用规则引擎优先、LLM 可选的架构：模型失败会自动回退，并触发 60 秒熔断；文件会先提取为带页码或幻灯片标签的文本，再用于术语排序和来源引用。</p>
+            <div class="project-points">
+              <div><h4>问题</h4><p>学生能读懂 syllabus，却很难判断哪些词是真正的课程术语，也很难把一个大作业拆成每天能完成的步骤。</p></div>
+              <div><h4>方案</h4><p>先识别提交物和多个 deadline，再为每个截止日期生成阶段，默认提前两天完成；日期可编辑、可批量修改。</p></div>
+              <div><h4>验证</h4><p>pytest 覆盖 API、上传边界、日期解析、多 deadline、存储和词汇复习；headless Chrome 检查在线、离线和 file://。</p></div>
+              <div><h4>局限</h4><p>单用户、无鉴权、JSON 存储，不适合多用户并发；扫描 PDF 没有 OCR；模型输入受上下文限制；重启会重置词汇计划。</p></div>
+            </div>
             <details class="details">
-              <summary>展开：背景、方法、验证与反思</summary>
-              <div class="details-grid">
-                <div class="detail-block"><h4>Background</h4><p>英语授课课程里，学生能读懂 syllabus，却很难判断哪些词是真正的课程术语，也很难把一个大作业拆成每天能完成的步骤。</p></div>
-                <div class="detail-block"><h4>Approach</h4><p>作业要求先识别提交物和多个 deadline，再为每个截止日期生成一个阶段，默认提前两天完成；任务日期可编辑、可批量修改，并可加入周/日/月日程。</p></div>
-                <div class="detail-block"><h4>Validation</h4><p>82 项 pytest 覆盖 API、上传边界、日期解析、多 deadline、存储和词汇复习；30 条规则评估检查确定性基线；headless Chrome 检查在线、离线和 file:// 渲染。</p></div>
-                <div class="detail-block"><h4>Limits</h4><p>单用户、无鉴权、JSON 存储、不适合多用户并发；扫描 PDF 没有 OCR；模型输入受上下文限制；重启会重置词汇计划。</p></div>
-                <div class="detail-block"><h4>Next</h4><p>补充登录与用户隔离，迁移 SQLite/Postgres；加入 OCR/vision；补充真实模型质量评估，并整理第二个数据分析项目。</p></div>
-                <div class="detail-block"><h4>What I learned</h4><p>先把失败路径设计出来，比在正常路径上堆功能更重要。离线回退、日期边界和“没有数据时不要乱猜”，都来自真实测试暴露的问题。</p></div>
+              <summary>查看过程记录与下一步</summary>
+              <div class="details-body">
+                <div><h4>背景</h4><p>英语授课课程里，术语、反馈和作业规划分散在不同的工具里。原有版本只是一个静态页面，不能上传文件，也没有真实的数据流。</p></div>
+                <div><h4>我做了什么</h4><p>把需求拆成数据结构和 API，完成前端页面、上传解析、日期计划、词汇复习、错误回退和测试；把失败路径和已知限制写进文档。</p></div>
+                <div><h4>一个重要取舍</h4><p>没有让模型直接决定一切。规则引擎提供确定性的基线，模型只负责增强；这样没 key 也能演示，失败时也能解释。</p></div>
+                <div><h4>下一步</h4><p>补登录和用户隔离，迁移到 SQLite/Postgres；为扫描件加入 OCR 或视觉模型；补充真实模型质量评估，并整理第二个数据分析项目。</p></div>
               </div>
             </details>
           </div>
-          <aside>
-            <div class="gallery">
-              <figure>
-                <img src="assets/transition-flashcards.png" width="1440" height="1000" alt="Transition Companion 的词汇翻卡复习页面截图" loading="lazy">
-                <figcaption>Vocabulary flashcards</figcaption>
-              </figure>
-              <figure>
-                <img src="assets/transition-overview.png" width="1440" height="1000" alt="Transition Companion 总览页面截图" loading="lazy">
-                <figcaption>Overview / adaptation</figcaption>
-              </figure>
-            </div>
-          </aside>
+
+          <div class="project-gallery">
+            <figure>
+              <img src="assets/transition-flashcards.png" width="1440" height="1000" alt="Transition Companion 词汇翻卡复习页面截图" loading="lazy">
+              <figcaption>词汇翻卡复习</figcaption>
+            </figure>
+            <figure>
+              <img src="assets/transition-overview.png" width="1440" height="1000" alt="Transition Companion 总览页面截图" loading="lazy">
+              <figcaption>学习总览与适应度</figcaption>
+            </figure>
+          </div>
         </div>
 
-        <div class="project-foot">
+        <div class="project-footer">
           <span>源码与在线演示仍在整理中；欢迎邮件交流实现细节。</span>
-          <a href="mailto:px1229@foxmail.com">px1229@foxmail.com ↗</a>
+          <a href="mailto:px1229@foxmail.com">px1229@foxmail.com</a>
         </div>
-      </div>
-    </article>
+      </article>
+    </div>
   </section>
 
   <section id="about" class="wrap section">
     <div class="section-head">
       <div>
-        <div class="kicker">02 / About</div>
+        <p class="section-label">关于我 / About</p>
         <h2>先理解问题，<br>再写代码。</h2>
       </div>
-      <p class="muted">我在意的不只是“写出来”，还包括它为什么这样设计、失败时怎么办、别人能不能接手继续改。</p>
+      <p class="intro">我在意的不只是“写出来”，还包括它为什么这样设计、失败时怎么办、别人能不能接手继续改。</p>
     </div>
 
     <div class="about-grid">
-      <div class="about">
+      <div class="about-copy">
         <p>我是浦希，目前就读于西交利物浦大学人工智能（智能系统方向），大三。我的兴趣在软件开发与数据分析：把需求拆成小步骤，先做出能运行的版本，再用测试、文档和反馈继续迭代。</p>
         <p>Transition Companion 是我参与实现的团队项目。队友负责原型设计和需求梳理，我负责技术方案、前后端实现、测试和文档。项目并不完美，但我会把做过什么、验证到什么程度、还缺什么写清楚。</p>
-        <p class="muted">目前正在寻找软件开发 / 数据分析方向的实习机会。简历可以直接下载，也欢迎邮件交流。</p>
-        <div class="hero-actions">
-          <a class="btn primary" href="assets/resume.pdf" download="浦希-简历.pdf">下载简历 PDF <span class="arrow">↓</span></a>
-          <a class="btn ghost" href="mailto:px1229@foxmail.com">发邮件 <span class="arrow">↗</span></a>
+        <p>目前正在寻找软件开发 / 数据分析方向的实习机会。简历可以直接下载，也欢迎邮件交流。</p>
+        <div class="hero-links">
+          <a class="action" href="assets/resume.pdf" download="浦希-简历.pdf">下载简历 PDF</a>
+          <a class="text-link" href="mailto:px1229@foxmail.com">发邮件</a>
         </div>
       </div>
 
-      <aside class="about-card">
-        <h3>Toolbox</h3>
-        <ul class="skills" aria-label="技能">
-          <li>Python</li><li>C++</li><li>Git</li><li>FastAPI</li><li>Pydantic</li><li>HTML / CSS</li><li>JavaScript</li><li>Data analysis</li><li>Machine learning basics</li>
-        </ul>
-        <div class="education">
-          <strong>西交利物浦大学</strong>
-          <span>BSc Artificial Intelligence · Intelligent Systems</span>
-          <span>2024 — 2028 · Year 3</span>
-        </div>
-        <div class="next-note">下一个项目：数据分析方向，整理中。完成后会继续更新这个页面。</div>
+      <aside>
+        <div class="pullquote">“先把失败路径想清楚，再把正常路径做漂亮。”</div>
+        <dl class="about-facts">
+          <div><dt>学校</dt><dd><strong>西交利物浦大学</strong><br>BSc Artificial Intelligence · Intelligent Systems</dd></div>
+          <div><dt>年级</dt><dd>2024 — 2028 · 大三</dd></div>
+          <div><dt>方向</dt><dd>软件开发 / 数据分析</dd></div>
+          <div><dt>工具</dt><dd>
+            <p class="skills"><span>Python</span><span>C++</span><span>Git</span><span>FastAPI</span><span>Pydantic</span><span>HTML / CSS</span><span>JavaScript</span><span>数据分析基础</span><span>机器学习基础</span></p>
+          </dd></div>
+        </dl>
+        <div class="next-project">下一个项目：数据分析方向，整理中。完成后会继续更新这个页面。</div>
       </aside>
     </div>
   </section>
 
-  <section id="contact" class="wrap section">
-    <div class="contact-panel">
-      <div class="kicker">03 / Get in touch</div>
-      <h2>一起做点<br>有用的东西。</h2>
-      <p>欢迎交流软件开发、数据分析实习、课程项目或技术实现。邮件通常是最快的方式。</p>
-      <div class="contact-links">
-        <a class="contact-link" href="mailto:px1229@foxmail.com">
-          <small>Email</small>
-          <strong>px1229@foxmail.com ↗</strong>
-        </a>
-        <a class="contact-link" href="https://github.com/cycy408" target="_blank" rel="noreferrer">
-          <small>GitHub</small>
-          <strong>github.com/cycy408 ↗</strong>
-        </a>
-        <a class="contact-link" href="assets/resume.pdf" download="浦希-简历.pdf">
-          <small>Resume</small>
-          <strong>下载简历 PDF ↓</strong>
-        </a>
+  <section id="contact" class="section contact-section">
+    <div class="wrap contact-grid">
+      <div>
+        <p class="section-label">联系 / Get in touch</p>
+        <h2>一起做点<br>有用的东西。</h2>
+        <p class="intro">欢迎交流软件开发、数据分析实习、课程项目或技术实现。邮件通常是最快的方式。</p>
       </div>
-      <div class="contact-meta">BASED IN SUZHOU · OPEN TO SOFTWARE / DATA INTERNSHIPS · LAST UPDATED 2026.11</div>
+      <div>
+        <div class="contact-list">
+          <a href="mailto:px1229@foxmail.com"><strong>px1229@foxmail.com</strong><span>Email</span></a>
+          <a href="https://github.com/cycy408" target="_blank" rel="noreferrer"><strong>github.com/cycy408</strong><span>GitHub</span></a>
+          <a href="assets/resume.pdf" download="浦希-简历.pdf"><strong>浦希简历 PDF</strong><span>Download</span></a>
+        </div>
+        <p class="contact-note">苏州 · 2026.11 · 网站与项目仍在持续更新</p>
+      </div>
     </div>
   </section>
 </main>
@@ -481,7 +393,7 @@ footer a{color:var(--ink)}
 <footer>
   <div class="wrap">
     <span>浦希 XI.Pu · Portfolio 2026</span>
-    <span>Built as a single static page · <a href="#home">Back to top ↑</a></span>
+    <span><a href="#home">回到顶部</a></span>
   </div>
 </footer>
 </body>
