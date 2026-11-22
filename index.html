@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>浦希 XI.Pu | 软件与数据作品集</title>
+<meta name="description" content="浦希（XI.Pu）的作品集：西交利物浦大学人工智能专业大三学生，关注软件开发与数据分析。记录项目背景、个人贡献、验证结果与局限。">
+<meta name="theme-color" content="#f5f8fc">
+<style>
+:root{
+  --ink:#142b3b;
+  --muted:#5c6f7d;
+  --blue:#175be8;
+  --blue-dark:#1245b8;
+  --paper:#f5f8fc;
+  --white:#ffffff;
+  --line:#dce4ef;
+  --soft:#eaf1ff;
+  --warm:#fff4dd;
+  --warm-ink:#6b4a16;
+  --shadow:0 18px 50px rgba(23,60,106,.10);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{
+  margin:0;
+  overflow-x:hidden;
+  color:var(--ink);
+  background:var(--paper);
+  font:17px/1.75 system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--blue);text-underline-offset:4px}
+a:hover{color:var(--blue-dark)}
+a:focus-visible,summary:focus-visible,button:focus-visible{outline:3px solid #e69720;outline-offset:4px}
+img{display:block;max-width:100%;height:auto}
+.wrap{width:min(1080px,calc(100% - 56px));margin-inline:auto}
+.skip-link{position:absolute;left:-9999px;top:0;background:var(--ink);color:#fff;padding:10px 16px;z-index:100}
+.skip-link:focus{left:16px;top:16px}
+header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(255,255,255,.92);
+  border-bottom:1px solid var(--line);
+  backdrop-filter:blur(12px);
+}
+nav{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:17px 0;min-width:0}
+.brand{color:var(--ink);text-decoration:none;font-weight:800;letter-spacing:.2px}
+.brand span{color:var(--blue)}
+.links{display:flex;align-items:center;gap:24px;font-size:15px;min-width:0;flex-wrap:wrap}
+.links a{color:var(--ink);text-decoration:none}
+.links a:hover{color:var(--blue)}
+.hero{
+  display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);gap:56px;align-items:center;
+  padding:76px 0 66px;
+}
+.hero > *, .about-grid > *, .contact-grid > *, .gallery > *, .section-head > *{min-width:0}
+.eyebrow{font-size:12px;letter-spacing:2.4px;color:var(--blue);font-weight:800;text-transform:uppercase}
+h1{font-size:clamp(38px,5.6vw,58px);line-height:1.16;letter-spacing:-2.2px;margin:14px 0 22px;overflow-wrap:anywhere}
+h1 span{color:var(--blue)}
+h2{font-size:clamp(27px,3.2vw,34px);line-height:1.3;margin:0 0 12px;letter-spacing:-.6px}
+h3{font-size:23px;line-height:1.35;margin:8px 0 12px;letter-spacing:-.2px}
+p{margin:0 0 18px}
+.muted{color:var(--muted)}
+.lead{font-size:18px;max-width:620px}
+.hero-meta{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0 28px}
+.pill{display:inline-flex;align-items:center;border:1px solid var(--line);background:var(--white);border-radius:999px;padding:5px 11px;font-size:13px;color:var(--muted)}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.button{display:inline-block;border-radius:9px;background:var(--blue);color:#fff;padding:11px 20px;text-decoration:none;font-weight:700;box-shadow:0 8px 22px rgba(23,91,232,.18)}
+.button:hover{color:#fff;background:var(--blue-dark)}
+.button.secondary{background:transparent;color:var(--ink);border:1px solid var(--line);box-shadow:none}
+.button.secondary:hover{color:var(--blue);border-color:#adc3e8;background:#fff}
+.hero-visual{position:relative}
+.hero-visual::before{content:"";position:absolute;inset:18px -14px -14px 18px;border-radius:20px;background:#dfeaff;z-index:0}
+.hero-visual figure{position:relative;z-index:1;margin:0;background:#fff;border:1px solid var(--line);border-radius:20px;padding:12px;box-shadow:var(--shadow)}
+.hero-visual img{width:100%;border-radius:12px;aspect-ratio:1440/1000;object-fit:cover;object-position:top left}
+figcaption{font-size:12px;color:var(--muted);padding:10px 4px 0}
+.section{padding:54px 0;border-top:1px solid var(--line)}
+.section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:26px}
+.section-head p{max-width:600px;margin:0}
+.card{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:30px}
+.project{padding:34px;box-shadow:0 14px 40px rgba(23,60,106,.06)}
+.project-top{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap}
+.tag{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.6px;color:var(--blue);background:var(--soft);border-radius:999px;padding:5px 10px}
+.status{font-size:12px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:5px 10px;white-space:nowrap}
+.project-goal{font-size:18px;max-width:790px;margin:16px 0 24px}
+.facts{display:grid;grid-template-columns:112px 1fr;gap:12px 18px;margin:0 0 24px;font-size:15px}
+.facts dt{font-weight:750;color:var(--ink)}
+.facts dd{margin:0;color:var(--muted);overflow-wrap:anywhere}
+.project-details{margin-top:8px;border-top:1px solid var(--line);padding-top:18px}
+summary{cursor:pointer;color:var(--blue);font-weight:750;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:22px;line-height:1;color:var(--blue)}
+details[open] summary::after{content:"−"}
+.details-body{padding-top:22px;display:grid;gap:18px}
+.block{border-left:3px solid #c8d7f3;padding-left:16px}
+.block h3{font-size:16px;margin:0 0 6px}
+.block p{margin:0;color:var(--muted);font-size:15px}
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:24px}
+.gallery figure{margin:0;background:#f7f9fd;border:1px solid var(--line);border-radius:12px;padding:9px}
+.gallery img{width:100%;border-radius:8px;aspect-ratio:1440/1000;object-fit:cover;object-position:top left}
+.repo-note{font-size:13px;color:var(--muted);margin:18px 0 0}
+.about-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:24px}
+.about p:last-child{margin-bottom:0}
+.skill-list{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0;padding:0;list-style:none}
+.skill-list li{background:#fff;border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:13px;color:var(--ink)}
+.note-box{background:var(--warm);color:var(--warm-ink);border:1px solid #f0dbad;border-radius:12px;padding:16px 18px;font-size:14px}
+.note-box p{margin:0}
+.contact-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:start}
+.contact-list{display:grid;gap:12px;margin:0}
+.contact-list a{display:flex;justify-content:space-between;gap:16px;align-items:center;text-decoration:none;background:#fff;border:1px solid var(--line);border-radius:10px;padding:13px 15px;color:var(--ink)}
+.contact-list a:hover{border-color:#adc3e8;background:#fbfdff}
+.contact-list span{font-size:12px;color:var(--muted)}
+footer{padding:30px 0;color:var(--muted);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+@media(max-width:820px){
+  .hero{grid-template-columns:minmax(0,1fr);gap:30px;padding:48px 0}
+  .hero-visual{order:2;max-width:620px}
+  .about-grid,.contact-grid{grid-template-columns:1fr}
+  .project{padding:24px}
+}
+@media(max-width:700px){
+  body{font-size:16px}
+  .wrap{width:calc(100% - 40px)}
+  nav{align-items:flex-start;gap:12px;padding:14px 0}
+  .links{gap:14px;font-size:14px;flex-wrap:wrap;justify-content:flex-end}
+  .brand{font-size:15px;line-height:1.5}
+  h1{letter-spacing:-1.2px}
+  .lead{font-size:17px}
+  .section{padding:38px 0}
+  .section-head{display:block}
+  .section-head p{margin-top:10px}
+  .facts{grid-template-columns:82px 1fr;gap:9px 12px;font-size:14px}
+  .gallery{grid-template-columns:1fr}
+  .project-top{gap:10px}
+  .status{white-space:normal}
+  footer .wrap{display:block}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important}
+}
+@media print{
+  header,.hero-visual,.actions,footer{display:none}
+  body{background:#fff;font-size:12pt}
+  .section{border-top:0;padding:18pt 0}
+  .card,.project{box-shadow:none;border:0;padding:0}
+  details{display:block}
+  details > summary{display:none}
+  details > .details-body{display:grid!important;padding-top:0}
+  .gallery{display:none}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到主要内容</a>
+
+<header>
+  <div class="wrap">
+    <nav aria-label="主导航">
+      <a class="brand" href="#home">浦希 <span>/ XI.Pu</span></a>
+      <div class="links">
+        <a href="#projects">项目</a>
+        <a href="#about">关于我</a>
+        <a href="#contact">联系</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section id="home" class="wrap hero">
+    <div>
+      <div class="eyebrow">Software · Data · Engineering</div>
+      <h1>你好，我是浦希。<br><span>把问题做成可用的工具。</span></h1>
+      <p class="lead">西交利物浦大学人工智能（智能系统方向）大三学生。我关注软件开发与数据分析，也喜欢把课程里模糊的问题拆成可以运行、可以验证的功能。</p>
+      <div class="hero-meta" aria-label="个人信息">
+        <span class="pill">西交利物浦大学</span>
+        <span class="pill">人工智能 · 智能系统方向</span>
+        <span class="pill">大三 · 2024–2028</span>
+        <span class="pill">寻找软件开发 / 数据分析实习</span>
+      </div>
+      <div class="actions">
+        <a class="button" href="#projects">查看我的项目</a>
+        <a class="button secondary" href="#contact">联系我</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <figure>
+        <img src="assets/transition-overview.png" width="1440" height="1000" alt="Transition Companion 学习助手的总览页面截图" fetchpriority="high">
+        <figcaption>Transition Companion · 项目界面截图</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="projects" class="wrap section">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Selected Work</div>
+        <h2>精选项目</h2>
+        <p class="muted">先讲清一个问题，再说明我做了什么、怎么验证，以及还有哪里没做好。</p>
+      </div>
+    </div>
+
+    <article class="card project" aria-labelledby="project-transition-title">
+      <div class="project-top">
+        <span class="tag">团队项目 · 2026.11–至今</span>
+        <span class="status">持续迭代 · 源码整理中</span>
+      </div>
+      <h3 id="project-transition-title">Transition Companion：离线优先的 AI 学习助手</h3>
+      <p class="project-goal">面向英语授课课程的学习助手：上传 syllabus、课件或作业要求，提取课程术语，生成学术写作反馈，并把大作业拆成按提交日期执行的任务与学习日程。</p>
+
+      <dl class="facts">
+        <dt>我的角色</dt>
+        <dd>负责技术方案与实现：FastAPI 后端、原生 JS 前端、数据处理、测试与文档；队友负责原型设计和需求梳理。</dd>
+        <dt>使用技术</dt>
+        <dd>Python、FastAPI、Pydantic、原生 HTML/CSS/JavaScript、原子 JSON Store、pytest、Git</dd>
+        <dt>当前结果</dt>
+        <dd>7 个功能页面；82 项 pytest 通过；30/30 条规则引擎评估通过；无 API key 也能离线完成主要流程。</dd>
+      </dl>
+
+      <details class="project-details">
+        <summary>查看背景、方法、验证与反思</summary>
+        <div class="details-body">
+          <div class="block">
+            <h3>背景</h3>
+            <p>英语授课课程里，学生通常能读懂 syllabus，却很难判断哪些词是真正的课程术语，也很难把一个大作业拆成每天能完成的小步骤。原有版本只是一个静态页面，不能上传文件，也没有真实的数据流。</p>
+          </div>
+          <div class="block">
+            <h3>方法</h3>
+            <p>采用“规则引擎优先、LLM 可选”的架构：没有 API key 时，词汇、反馈、任务拆解和日程都能运行；模型只作为增强层，失败时自动回退，并触发 60 秒熔断。PDF/DOCX/PPTX/TXT 会先提取为带页码/幻灯片标签的文本，再用于术语排序和来源引用。</p>
+          </div>
+          <div class="block">
+            <h3>作业规划</h3>
+            <p>作业要求会先识别提交物和多个 deadline，再为每个截止日期生成一个阶段，默认提前两天完成。没有可读日期时标记为“待设置”，不沿用旧任务的截止时间；任务卡支持编辑、Shift 多选批量改日期，并可一键加入周/日/月日程。</p>
+          </div>
+          <div class="block">
+            <h3>验证</h3>
+            <p>用 82 项 pytest 覆盖 API、文件上传边界、日期解析、多 deadline、存储和词汇复习；用 30 条确定性评估检查规则引擎；再用 headless Chrome 检查在线、离线和 file:// 三种渲染方式。测试重点是失败时是否有明确回退，而不只是“正常路径能跑”。</p>
+          </div>
+          <div class="block">
+            <h3>局限</h3>
+            <p>目前是单用户、本地优先版本：没有鉴权，使用 JSON 文档存储，不适合多用户并发；扫描版 PDF 和图片公式没有 OCR；模型输入仍受上下文长度限制；重启时词汇计划会重置。网站和项目都还在持续完善。</p>
+          </div>
+          <div class="block">
+            <h3>下一步</h3>
+            <p>补充登录与用户隔离，把存储迁移到 SQLite/Postgres；为扫描件加入 OCR 或视觉模型；补充真实模型质量评估；再整理一个数据分析方向的项目。</p>
+          </div>
+        </div>
+      </details>
+
+      <div class="gallery" aria-label="项目截图">
+        <figure>
+          <img src="assets/transition-tasks.png" width="1440" height="1000" alt="Transition Companion 的作业拆解与日期计划页面" loading="lazy">
+          <figcaption>作业要求拆成可编辑的日期计划</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/transition-flashcards.png" width="1440" height="1000" alt="Transition Companion 的词汇翻卡复习页面" loading="lazy">
+          <figcaption>带课程语境的词汇翻卡复习</figcaption>
+        </figure>
+      </div>
+      <p class="repo-note">项目源码与在线演示仍在整理中，暂未公开；如果你对实现细节感兴趣，欢迎邮件交流。</p>
+    </article>
+  </section>
+
+  <section id="about" class="wrap section">
+    <div class="eyebrow">About Me</div>
+    <h2>关于我</h2>
+    <div class="about-grid">
+      <div class="card about">
+        <p>我是浦希，目前就读于西交利物浦大学人工智能（智能系统方向），大三。我的兴趣在软件开发与数据分析：把需求拆成小步骤，先做出能运行的版本，再用测试、文档和反馈继续迭代。</p>
+        <p>这个作品集里的 Transition Companion 是我参与实现的团队项目。队友负责原型设计和需求梳理，我负责技术方案、前后端实现、测试和文档。项目并不完美，但我会把做过什么、验证到什么程度、还缺什么写清楚。</p>
+        <p class="muted">目前正在寻找软件开发 / 数据分析方向的实习机会。简历可直接下载：<a href="assets/resume.pdf" download="浦希-简历.pdf">浦希简历 PDF</a>。</p>
+      </div>
+      <aside class="card">
+        <div class="eyebrow">Toolbox</div>
+        <h3>常用工具</h3>
+        <ul class="skill-list" aria-label="技能">
+          <li>Python</li>
+          <li>C++</li>
+          <li>Git</li>
+          <li>FastAPI</li>
+          <li>Pydantic</li>
+          <li>HTML / CSS</li>
+          <li>JavaScript</li>
+          <li>数据分析基础</li>
+          <li>机器学习基础</li>
+        </ul>
+        <div class="note-box" style="margin-top:20px">
+          <p>我正在补充一个数据分析方向的项目；完成后会继续更新这个页面。</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section id="contact" class="wrap section">
+    <div class="eyebrow">Get In Touch</div>
+    <h2>联系我</h2>
+    <div class="contact-grid">
+      <div>
+        <p>欢迎交流软件开发、数据分析实习、课程项目或技术实现。邮件通常是最快的方式。</p>
+        <div class="contact-list">
+          <a href="mailto:px1229@foxmail.com">
+            <strong>px1229@foxmail.com</strong>
+            <span>Email</span>
+          </a>
+          <a href="https://github.com/cycy408" target="_blank" rel="noreferrer">
+            <strong>github.com/cycy408</strong>
+            <span>GitHub ↗</span>
+          </a>
+          <a href="assets/resume.pdf" download="浦希-简历.pdf">
+            <strong>浦希简历 PDF</strong>
+            <span>Download ↓</span>
+          </a>
+        </div>
+      </div>
+      <div class="note-box">
+        <p>这个网站还在持续完善，后续会补充数据分析项目和新版本的演示。当前页面不展示手机号、住址等隐私信息。</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>浦希 XI.Pu · 最后更新：2026.11</span>
+    <span>项目截图来自本人参与的项目；页面为单文件静态 HTML。</span>
+  </div>
+</footer>
+</body>
+</html>
