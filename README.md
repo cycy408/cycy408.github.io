@@ -10,6 +10,7 @@
 
 - **首页**：个人介绍、技术方向与主项目入口
 - **主项目**：Transition Companion，离线优先的 AI 学习助手
+- **另一个项目**：高简教育平台，负责官网、会员方案和顾问服务页面的前端设计与优化
 - **项目详情**：问题、方案、我的角色、验证结果、局限和下一步
 - **截图切换**：任务计划 / 词汇复习 / 学习总览
 - **关于我**：教育背景、技术方向和常用工具
@@ -34,6 +35,9 @@
 │   ├── transition-overview.png
 │   ├── transition-tasks.png
 │   ├── transition-flashcards.png
+│   ├── gaojian-home.png
+│   ├── gaojian-membership.png
+│   ├── gaojian-consulting.png
 │   └── resume.pdf
 ├── .nojekyll
 └── README.md

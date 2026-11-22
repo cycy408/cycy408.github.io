@@ -170,6 +170,22 @@ details[open] summary::after{content:"−"}
 .project-footer{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;padding:16px 26px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
 .project-footer a{font-weight:800}
 
+.secondary-project{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:38px;margin-top:30px;padding:24px;background:var(--soft);border:1px solid var(--line)}
+.secondary-project > *{min-width:0}
+.secondary-media{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-content:start}
+.secondary-media figure{margin:0;background:var(--surface);border:1px solid var(--line);padding:5px}
+.secondary-hero{grid-column:1/-1}
+.secondary-media img{width:100%;aspect-ratio:1440/1000;object-fit:cover;object-position:top left}
+.secondary-media figcaption{font-size:10px;color:var(--muted);padding:6px 1px 0}
+.secondary-copy h3{font-size:clamp(30px,3.6vw,46px);line-height:1.06;letter-spacing:-2px;margin:4px 0 12px;font-weight:900}
+.secondary-lede{font-size:17px;line-height:1.65;color:var(--ink)}
+.secondary-facts{display:grid;margin:22px 0 18px;border-top:1px solid var(--ink)}
+.secondary-facts div{display:grid;grid-template-columns:72px 1fr;gap:14px;padding:12px 0;border-bottom:1px solid var(--line)}
+.secondary-facts dt{font-size:11px;font-weight:850;color:var(--blue)}
+.secondary-facts dd{margin:0;font-size:13px;line-height:1.55;color:var(--muted)}
+.secondary-copy > p{font-size:14px;color:var(--muted)}
+.secondary-link{margin:22px 0 0!important;font-size:14px!important}
+.secondary-link a{font-weight:850;border-bottom:2px solid var(--yellow);text-decoration:none;padding-bottom:2px}
 /* about */
 .about-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:56px;align-items:start}
 .about-grid > *{min-width:0}
@@ -206,6 +222,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
 footer a{color:#dbe2f1}
 
 @media(max-width:900px){
+  .secondary-project{grid-template-columns:minmax(0,1fr)}
   .hero{grid-template-columns:minmax(0,1fr);gap:38px;padding:54px 0 50px}
   .hero-figure{max-width:680px}
   .section-head,.project-top,.project-bottom,.about-grid,.contact-grid{grid-template-columns:minmax(0,1fr);gap:28px}
@@ -238,6 +255,7 @@ footer a{color:#dbe2f1}
   .section-head h2{font-size:38px;letter-spacing:-1.8px}
   .section-head .intro{font-size:15px}
   .project-main,.project-side,.project-bottom{padding:18px}
+  .secondary-project{padding:16px}
   .project-side h3{font-size:27px}
   .project-points,.details-body{grid-template-columns:1fr}
   .preview-top{align-items:flex-start}
@@ -400,6 +418,45 @@ footer a{color:#dbe2f1}
         <div class="project-footer">
           <span>源码与在线演示仍在整理中；欢迎邮件交流实现细节。</span>
           <a href="mailto:px1229@foxmail.com">px1229@foxmail.com</a>
+        </div>
+      </article>
+
+      <article class="secondary-project" aria-labelledby="gaojian-title">
+        <div class="secondary-media">
+          <figure class="secondary-hero">
+            <img src="assets/gaojian-home.png" width="1440" height="1000" alt="高简教育平台官网首页截图" loading="lazy">
+            <figcaption>高简官网 · 首页与「认识高简」入口</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/gaojian-membership.png" width="1440" height="1000" alt="高简会员方案页面截图" loading="lazy">
+            <figcaption>会员方案 · 价格与权益</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/gaojian-consulting.png" width="1440" height="1000" alt="高简顾问服务页面截图" loading="lazy">
+            <figcaption>顾问服务 · 套餐与咨询入口</figcaption>
+          </figure>
+        </div>
+
+        <div class="secondary-copy">
+          <p class="section-label">另一个项目 / Frontend design</p>
+          <h3 id="gaojian-title">高简教育平台</h3>
+          <p class="secondary-lede">一个面向系统构建学内容、会员和顾问服务的数字平台。我参与官网、会员方案和顾问服务页面的前端设计与优化，不负责后端和管理端。</p>
+          <dl class="secondary-facts">
+            <div><dt>我的角色</dt><dd>前端设计与优化；负责页面结构、视觉层级、响应式和内容呈现</dd></div>
+            <div><dt>范围</dt><dd>官网首页 / 会员方案 / 顾问服务</dd></div>
+            <div><dt>时间</dt><dd>2026.08 — 2026.09</dd></div>
+          </dl>
+          <p>把会员权益、价格档位和购买保障整理成更易扫读的层级；把顾问服务套餐从写死的按钮改成数据驱动渲染，提交时带上套餐 id；同时补齐手机端布局和页面状态样式。</p>
+          <details class="details">
+            <summary>查看设计过程与局限</summary>
+            <div class="details-body">
+              <div><h4>背景</h4><p>平台同时承载内容、会员、顾问和线下活动，信息密度高，用户需要在不同产品出口之间快速判断自己适合哪一条路径。</p></div>
+              <div><h4>我做了什么</h4><p>重构首页/内容页的视觉结构；整理会员权益、价格和购买保障；调整顾问服务套餐的呈现和提交字段；补充响应式样式和空状态。</p></div>
+              <div><h4>验证方式</h4><p>在桌面和手机尺寸检查导航、卡片、表单和文字换行；确认页面可以正常访问；把页面改动按功能拆成独立提交，方便回滚。</p></div>
+              <div><h4>局限</h4><p>我只负责前端，后端接口、管理端、权限和真实支付不在我的范围内；部分会员价格/权益文案仍由前端兜底，活动数据仍是静态 JSON。</p></div>
+            </div>
+          </details>
+          <p class="secondary-link"><a href="https://gaojianedu.com/" target="_blank" rel="noreferrer">查看线上页面</a></p>
         </div>
       </article>
     </div>
