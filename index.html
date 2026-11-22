@@ -5,148 +5,277 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>浦希 XI.Pu | 软件与数据作品集</title>
 <meta name="description" content="浦希（XI.Pu）的作品集：西交利物浦大学人工智能专业大三学生，关注软件开发与数据分析。记录项目背景、个人贡献、验证结果与局限。">
-<meta name="theme-color" content="#f5f8fc">
+<meta name="theme-color" content="#f3f0e8">
+<link rel="canonical" href="https://cycy408.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="浦希 XI.Pu | 软件与数据作品集">
+<meta property="og:description" content="把复杂问题，做成可用的产品。西交利物浦大学人工智能专业大三，寻找软件开发 / 数据分析实习。">
+<meta property="og:url" content="https://cycy408.github.io/">
+<meta property="og:image" content="https://cycy408.github.io/assets/transition-overview.png">
 <style>
 :root{
-  --ink:#142b3b;
-  --muted:#5c6f7d;
-  --blue:#175be8;
-  --blue-dark:#1245b8;
-  --paper:#f5f8fc;
-  --white:#ffffff;
-  --line:#dce4ef;
-  --soft:#eaf1ff;
-  --warm:#fff4dd;
-  --warm-ink:#6b4a16;
-  --shadow:0 18px 50px rgba(23,60,106,.10);
+  --paper:#f3f0e8;
+  --paper-2:#eae6db;
+  --card:#fffdf8;
+  --ink:#111b22;
+  --muted:#60707a;
+  --line:#d8d2c4;
+  --line-dark:#bdb5a4;
+  --blue:#1f4fff;
+  --blue-dark:#163bc4;
+  --orange:#f36b3c;
+  --orange-soft:#ffe3d6;
+  --navy:#0c1724;
+  --lime:#d8ff3e;
+  --max:1180px;
+  --radius:14px;
+  --mono:ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",monospace;
+  --sans:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:84px}
+html{scroll-behavior:smooth;scroll-padding-top:100px}
 body{
   margin:0;
-  overflow-x:hidden;
   color:var(--ink);
   background:var(--paper);
-  font:17px/1.75 system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;
+  font:17px/1.72 var(--sans);
   -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
 }
-a{color:var(--blue);text-underline-offset:4px}
-a:hover{color:var(--blue-dark)}
-a:focus-visible,summary:focus-visible,button:focus-visible{outline:3px solid #e69720;outline-offset:4px}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:-1;
+  background-image:
+    linear-gradient(rgba(17,27,34,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(17,27,34,.035) 1px,transparent 1px);
+  background-size:80px 80px;
+  mask-image:linear-gradient(to bottom,black 0%,transparent 72%);
+}
+::selection{background:var(--lime);color:var(--ink)}
+a{color:inherit;text-underline-offset:4px}
+a:hover{color:var(--blue)}
+a:focus-visible,summary:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-offset:4px}
 img{display:block;max-width:100%;height:auto}
-.wrap{width:min(1080px,calc(100% - 56px));margin-inline:auto}
-.skip-link{position:absolute;left:-9999px;top:0;background:var(--ink);color:#fff;padding:10px 16px;z-index:100}
-.skip-link:focus{left:16px;top:16px}
-header{
-  position:sticky;top:0;z-index:50;
-  background:rgba(255,255,255,.92);
-  border-bottom:1px solid var(--line);
-  backdrop-filter:blur(12px);
-}
-nav{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:17px 0;min-width:0}
-.brand{color:var(--ink);text-decoration:none;font-weight:800;letter-spacing:.2px}
-.brand span{color:var(--blue)}
-.links{display:flex;align-items:center;gap:24px;font-size:15px;min-width:0;flex-wrap:wrap}
-.links a{color:var(--ink);text-decoration:none}
-.links a:hover{color:var(--blue)}
-.hero{
-  display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);gap:56px;align-items:center;
-  padding:76px 0 66px;
-}
-.hero > *, .about-grid > *, .contact-grid > *, .gallery > *, .section-head > *{min-width:0}
-.eyebrow{font-size:12px;letter-spacing:2.4px;color:var(--blue);font-weight:800;text-transform:uppercase}
-h1{font-size:clamp(38px,5.6vw,58px);line-height:1.16;letter-spacing:-2.2px;margin:14px 0 22px;overflow-wrap:anywhere}
-h1 span{color:var(--blue)}
-h2{font-size:clamp(27px,3.2vw,34px);line-height:1.3;margin:0 0 12px;letter-spacing:-.6px}
-h3{font-size:23px;line-height:1.35;margin:8px 0 12px;letter-spacing:-.2px}
 p{margin:0 0 18px}
+.wrap{width:min(var(--max),calc(100% - 64px));margin-inline:auto}
+.skip-link{position:absolute;left:-9999px;top:0;background:var(--ink);color:#fff;padding:10px 16px;z-index:200}
+.skip-link:focus{left:16px;top:16px}
+.mono{font-family:var(--mono);font-size:11px;letter-spacing:1.2px;text-transform:uppercase}
 .muted{color:var(--muted)}
-.lead{font-size:18px;max-width:620px}
-.hero-meta{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0 28px}
-.pill{display:inline-flex;align-items:center;border:1px solid var(--line);background:var(--white);border-radius:999px;padding:5px 11px;font-size:13px;color:var(--muted)}
-.actions{display:flex;flex-wrap:wrap;gap:12px}
-.button{display:inline-block;border-radius:9px;background:var(--blue);color:#fff;padding:11px 20px;text-decoration:none;font-weight:700;box-shadow:0 8px 22px rgba(23,91,232,.18)}
-.button:hover{color:#fff;background:var(--blue-dark)}
-.button.secondary{background:transparent;color:var(--ink);border:1px solid var(--line);box-shadow:none}
-.button.secondary:hover{color:var(--blue);border-color:#adc3e8;background:#fff}
-.hero-visual{position:relative}
-.hero-visual::before{content:"";position:absolute;inset:18px -14px -14px 18px;border-radius:20px;background:#dfeaff;z-index:0}
-.hero-visual figure{position:relative;z-index:1;margin:0;background:#fff;border:1px solid var(--line);border-radius:20px;padding:12px;box-shadow:var(--shadow)}
-.hero-visual img{width:100%;border-radius:12px;aspect-ratio:1440/1000;object-fit:cover;object-position:top left}
-figcaption{font-size:12px;color:var(--muted);padding:10px 4px 0}
-.section{padding:54px 0;border-top:1px solid var(--line)}
-.section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:26px}
-.section-head p{max-width:600px;margin:0}
-.card{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:30px}
-.project{padding:34px;box-shadow:0 14px 40px rgba(23,60,106,.06)}
-.project-top{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap}
-.tag{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.6px;color:var(--blue);background:var(--soft);border-radius:999px;padding:5px 10px}
-.status{font-size:12px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:5px 10px;white-space:nowrap}
-.project-goal{font-size:18px;max-width:790px;margin:16px 0 24px}
-.facts{display:grid;grid-template-columns:112px 1fr;gap:12px 18px;margin:0 0 24px;font-size:15px}
-.facts dt{font-weight:750;color:var(--ink)}
-.facts dd{margin:0;color:var(--muted);overflow-wrap:anywhere}
-.project-details{margin-top:8px;border-top:1px solid var(--line);padding-top:18px}
-summary{cursor:pointer;color:var(--blue);font-weight:750;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:16px}
+
+/* ---------- top bar ---------- */
+.topline{border-bottom:1px solid var(--line);background:rgba(243,240,232,.88);backdrop-filter:blur(12px)}
+.topline .wrap{display:flex;justify-content:space-between;gap:20px;padding:9px 0}
+.topline span:last-child{color:var(--muted)}
+header{position:sticky;top:0;z-index:80;background:rgba(243,240,232,.92);border-bottom:1px solid var(--line);backdrop-filter:blur(14px)}
+nav{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:17px 0;min-width:0}
+.brand{display:flex;align-items:baseline;gap:10px;text-decoration:none;font-weight:850;letter-spacing:-.4px}
+.brand b{font-size:18px}
+.brand span{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:1.4px;color:var(--muted)}
+.links{display:flex;align-items:center;gap:26px;font-size:14px;min-width:0;flex-wrap:wrap}
+.links a{text-decoration:none;color:var(--ink);position:relative}
+.links a::after{content:"";position:absolute;left:0;right:100%;bottom:-5px;height:2px;background:var(--blue);transition:right .2s ease}
+.links a:hover::after{right:0}
+.links a.nav-cta{border:1px solid var(--ink);border-radius:99px;padding:7px 13px;background:var(--ink);color:var(--paper)}
+.links a.nav-cta:hover{background:var(--blue);border-color:var(--blue);color:#fff}
+.links a.nav-cta::after{display:none}
+
+/* ---------- shared labels ---------- */
+.kicker{display:flex;align-items:center;gap:12px;color:var(--blue);font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase}
+.kicker::before{content:"";width:28px;height:1px;background:var(--blue)}
+.section{padding:82px 0;border-top:1px solid var(--line)}
+.section-head{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:40px;align-items:end;margin-bottom:34px}
+.section-head h2{font-size:clamp(32px,4.5vw,56px);line-height:1.08;letter-spacing:-2.2px;margin:10px 0 0}
+.section-head p{margin:0;max-width:520px}
+.section-head > *{min-width:0}
+
+/* ---------- hero ---------- */
+.hero{padding:70px 0 62px;display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:54px;align-items:center}
+.hero > *{min-width:0}
+.hero-status{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:22px}
+.status-pill{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);border-radius:99px;background:var(--card);padding:6px 11px;font-family:var(--mono);font-size:10px;letter-spacing:.7px;color:var(--muted)}
+.status-pill i{width:7px;height:7px;border-radius:50%;background:#21a363;box-shadow:0 0 0 3px rgba(33,163,99,.13)}
+h1{font-size:clamp(48px,7.4vw,92px);line-height:.98;letter-spacing:-4.8px;margin:0 0 26px;font-weight:850;text-wrap:balance}
+h1 .accent{color:var(--blue);position:relative;white-space:nowrap;z-index:0}
+h1 .accent::after{content:"";position:absolute;left:0;right:-2px;bottom:7px;height:9px;background:var(--lime);z-index:-1;transform:rotate(-1deg)}
+.hero .lead{font-size:18px;line-height:1.75;max-width:610px;color:var(--muted)}
+.hero-actions{display:flex;flex-wrap:wrap;gap:11px;margin-top:28px}
+.btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;border-radius:99px;padding:12px 19px;font-size:14px;font-weight:750;border:1px solid transparent;transition:transform .18s ease,background .18s ease,color .18s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn.primary{background:var(--blue);color:#fff}
+.btn.primary:hover{background:var(--blue-dark);color:#fff}
+.btn.ghost{border-color:var(--line-dark);background:transparent;color:var(--ink)}
+.btn.ghost:hover{background:var(--card);color:var(--blue)}
+.btn .arrow{font-size:17px;line-height:1}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:38px;padding-top:20px;border-top:1px solid var(--line);max-width:520px}
+.hero-stats strong{display:block;font-size:27px;line-height:1;letter-spacing:-1.4px}
+.hero-stats span{display:block;margin-top:7px;font-family:var(--mono);font-size:10px;letter-spacing:.8px;color:var(--muted);text-transform:uppercase}
+.hero-visual{position:relative;padding:12px 0 12px 12px}
+.hero-visual::before{content:"";position:absolute;inset:13% -5% -4% 13%;background:var(--orange-soft);border:1px solid #f4c5b1;border-radius:18px;transform:rotate(2.2deg);z-index:0}
+.browser{position:relative;z-index:1;background:var(--card);border:1px solid var(--line-dark);border-radius:14px;padding:8px;box-shadow:0 24px 70px rgba(17,27,34,.16);transform:rotate(-1.3deg)}
+.browser-bar{display:flex;align-items:center;gap:5px;height:28px;padding:0 6px}
+.browser-bar i{width:6px;height:6px;border-radius:50%;background:var(--line-dark)}
+.browser-bar i:first-child{background:var(--orange)}
+.browser-bar span{margin-left:8px;font-family:var(--mono);font-size:9px;letter-spacing:.5px;color:var(--muted)}
+.browser img{width:100%;border-radius:8px;aspect-ratio:1440/1000;object-fit:cover;object-position:top left}
+.hero-caption{display:flex;justify-content:space-between;gap:16px;margin-top:16px;font-family:var(--mono);font-size:10px;letter-spacing:.6px;color:var(--muted);text-transform:uppercase}
+.hero-caption span:last-child{text-align:right}
+
+/* ---------- skills ticker ---------- */
+.ticker{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;background:var(--paper-2)}
+.ticker .wrap{display:flex;align-items:center;gap:18px;padding:12px 0;white-space:nowrap;overflow:hidden}
+.ticker-label{color:var(--orange);font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:1px;flex:0 0 auto}
+.ticker-track{display:flex;gap:24px;font-family:var(--mono);font-size:10px;letter-spacing:1.4px;color:var(--muted);text-transform:uppercase;min-width:0;overflow:hidden}
+.ticker-track span{flex:0 0 auto}
+.ticker-track span::after{content:"/";margin-left:24px;color:var(--line-dark)}
+
+/* ---------- project ---------- */
+.project{background:var(--card);border:1px solid var(--line-dark);border-radius:var(--radius);box-shadow:0 20px 60px rgba(17,27,34,.07);overflow:hidden}
+.project-head{padding:32px 34px 26px;border-bottom:1px solid var(--line);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:start}
+.project-head > *{min-width:0}
+.project-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.tag{display:inline-block;border:1px solid #c9d4f7;background:#edf1ff;color:var(--blue);border-radius:99px;padding:4px 9px;font-family:var(--mono);font-size:9px;letter-spacing:.8px;text-transform:uppercase}
+.project-status{font-family:var(--mono);font-size:10px;letter-spacing:.6px;color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:6px 10px;white-space:nowrap}
+.project h3{font-size:clamp(27px,3.4vw,43px);line-height:1.12;letter-spacing:-1.8px;margin:0 0 12px;max-width:780px}
+.project-goal{max-width:790px;color:var(--muted);font-size:17px;margin:0}
+.project-body{padding:30px 34px 34px}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-bottom:28px}
+.fact{padding:18px 20px;border-right:1px solid var(--line);min-width:0}
+.fact:last-child{border-right:0}
+.fact dt{font-family:var(--mono);font-size:9px;letter-spacing:1px;color:var(--muted);text-transform:uppercase;margin-bottom:7px}
+.fact dd{margin:0;font-size:14px;line-height:1.55;overflow-wrap:anywhere}
+.fact dd strong{font-weight:800}
+.project-banner{border:1px solid var(--line-dark);border-radius:10px;overflow:hidden;background:var(--navy);margin:0 0 28px}
+.project-banner .browser-bar{background:var(--navy);padding:0 10px}
+.project-banner .browser-bar span{color:#91a2b2}
+.project-banner .browser-bar i{background:#455466}
+.project-banner img{width:100%;aspect-ratio:1440/1000;object-fit:cover;object-position:top left}
+.project-copy{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:38px;align-items:start}
+.project-copy > *{min-width:0}
+.project-copy p{color:var(--muted);font-size:15px}
+.role-note{background:#f7f4ec;border-left:3px solid var(--orange);padding:16px 18px;font-size:14px;color:var(--ink);margin:0 0 20px}
+.role-note strong{display:block;font-family:var(--mono);font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--orange);margin-bottom:5px}
+.details{border-top:1px solid var(--line);margin-top:22px;padding-top:16px}
+summary{display:flex;justify-content:space-between;align-items:center;gap:16px;cursor:pointer;list-style:none;font-weight:750;color:var(--blue);font-size:14px}
 summary::-webkit-details-marker{display:none}
-summary::after{content:"+";font-size:22px;line-height:1;color:var(--blue)}
+summary::after{content:"+";font-size:22px;font-weight:400;line-height:1;color:var(--blue)}
 details[open] summary::after{content:"−"}
-.details-body{padding-top:22px;display:grid;gap:18px}
-.block{border-left:3px solid #c8d7f3;padding-left:16px}
-.block h3{font-size:16px;margin:0 0 6px}
-.block p{margin:0;color:var(--muted);font-size:15px}
-.gallery{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:24px}
-.gallery figure{margin:0;background:#f7f9fd;border:1px solid var(--line);border-radius:12px;padding:9px}
-.gallery img{width:100%;border-radius:8px;aspect-ratio:1440/1000;object-fit:cover;object-position:top left}
-.repo-note{font-size:13px;color:var(--muted);margin:18px 0 0}
-.about-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:24px}
-.about p:last-child{margin-bottom:0}
-.skill-list{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0;padding:0;list-style:none}
-.skill-list li{background:#fff;border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:13px;color:var(--ink)}
-.note-box{background:var(--warm);color:var(--warm-ink);border:1px solid #f0dbad;border-radius:12px;padding:16px 18px;font-size:14px}
-.note-box p{margin:0}
-.contact-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:start}
-.contact-list{display:grid;gap:12px;margin:0}
-.contact-list a{display:flex;justify-content:space-between;gap:16px;align-items:center;text-decoration:none;background:#fff;border:1px solid var(--line);border-radius:10px;padding:13px 15px;color:var(--ink)}
-.contact-list a:hover{border-color:#adc3e8;background:#fbfdff}
-.contact-list span{font-size:12px;color:var(--muted)}
-footer{padding:30px 0;color:var(--muted);font-size:13px}
-footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
-@media(max-width:820px){
-  .hero{grid-template-columns:minmax(0,1fr);gap:30px;padding:48px 0}
-  .hero-visual{order:2;max-width:620px}
-  .about-grid,.contact-grid{grid-template-columns:1fr}
-  .project{padding:24px}
+.details-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px 26px;padding-top:20px}
+.detail-block h4{font-family:var(--mono);font-size:9px;letter-spacing:1px;color:var(--orange);text-transform:uppercase;margin:0 0 5px}
+.detail-block p{margin:0;color:var(--muted);font-size:14px}
+.gallery{display:grid;grid-template-columns:1fr;gap:16px;margin-top:0}
+.gallery figure{margin:0;background:#f7f4ec;border:1px solid var(--line);border-radius:9px;padding:7px}
+.gallery img{width:100%;aspect-ratio:1440/1000;object-fit:cover;object-position:top left;border-radius:5px}
+figcaption{font-family:var(--mono);font-size:9px;letter-spacing:.5px;color:var(--muted);padding:8px 2px 0;text-transform:uppercase}
+.project-foot{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;margin-top:24px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+.project-foot a{font-weight:750}
+
+/* ---------- about ---------- */
+.about-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:30px;align-items:start}
+.about-grid > *{min-width:0}
+.about p{max-width:720px}
+.about p:first-child{font-size:19px;line-height:1.72;color:var(--ink)}
+.about p + p{color:var(--muted)}
+.about-card{background:var(--card);border:1px solid var(--line-dark);border-radius:var(--radius);padding:25px}
+.about-card h3{font-size:17px;margin:0 0 15px;letter-spacing:-.3px}
+.skills{display:flex;flex-wrap:wrap;gap:7px;margin:0;padding:0;list-style:none}
+.skills li{border:1px solid var(--line);border-radius:6px;background:#f8f5ee;padding:5px 8px;font-family:var(--mono);font-size:10px;letter-spacing:.4px}
+.education{border-top:1px solid var(--line);margin-top:20px;padding-top:18px;display:grid;gap:5px;font-size:13px;color:var(--muted)}
+.education strong{color:var(--ink);font-size:14px}
+.education span{font-family:var(--mono);font-size:10px;letter-spacing:.5px}
+.next-note{margin-top:20px;background:var(--lime);border-radius:8px;padding:13px 15px;font-size:13px;line-height:1.55;color:var(--ink)}
+
+/* ---------- contact ---------- */
+.contact-panel{background:var(--navy);color:#f7f4ec;border-radius:var(--radius);padding:38px;position:relative;overflow:hidden}
+.contact-panel::before{content:"";position:absolute;right:-70px;top:-90px;width:280px;height:280px;border:1px solid rgba(216,255,62,.35);border-radius:50%}
+.contact-panel::after{content:"";position:absolute;right:20px;bottom:-90px;width:220px;height:220px;border:1px solid rgba(31,79,255,.55);border-radius:50%}
+.contact-panel .kicker{color:var(--lime)}
+.contact-panel .kicker::before{background:var(--lime)}
+.contact-panel h2{font-size:clamp(30px,4.4vw,52px);line-height:1.08;letter-spacing:-2px;margin:12px 0 18px;max-width:720px}
+.contact-panel p{color:#aab7c4;max-width:560px}
+.contact-links{position:relative;z-index:1;display:grid;grid-template-columns:1.2fr .8fr .8fr;gap:10px;margin-top:28px}
+.contact-link{display:flex;flex-direction:column;justify-content:space-between;gap:12px;min-height:82px;text-decoration:none;border:1px solid rgba(247,244,236,.22);border-radius:9px;padding:14px 15px;color:#f7f4ec;transition:background .18s ease,border-color .18s ease}
+.contact-link:hover{background:rgba(247,244,236,.08);border-color:rgba(247,244,236,.5);color:#fff}
+.contact-link small{font-family:var(--mono);font-size:9px;letter-spacing:1px;color:#93a4b1;text-transform:uppercase}
+.contact-link strong{font-size:14px;overflow-wrap:anywhere}
+.contact-meta{position:relative;z-index:1;margin-top:24px;font-family:var(--mono);font-size:10px;letter-spacing:.5px;color:#8193a2}
+
+/* ---------- footer ---------- */
+footer{padding:26px 0;border-top:1px solid var(--line);color:var(--muted);font-size:12px}
+footer .wrap{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
+footer a{color:var(--ink)}
+
+@media(max-width:900px){
+  .hero{grid-template-columns:minmax(0,1fr);gap:36px;padding:48px 0 44px}
+  .hero-visual{padding:0;max-width:680px}
+  .section-head,.project-copy,.about-grid{grid-template-columns:minmax(0,1fr);gap:24px}
+  .facts{grid-template-columns:1fr 1fr}
+  .fact:nth-child(2){border-right:0}
+  .fact:nth-child(3){grid-column:1/-1;border-top:1px solid var(--line)}
+  .contact-links{grid-template-columns:1fr 1fr}
+  .contact-link:first-child{grid-column:1/-1}
 }
 @media(max-width:700px){
   body{font-size:16px}
-  .wrap{width:calc(100% - 40px)}
-  nav{align-items:flex-start;gap:12px;padding:14px 0}
-  .links{gap:14px;font-size:14px;flex-wrap:wrap;justify-content:flex-end}
-  .brand{font-size:15px;line-height:1.5}
-  h1{letter-spacing:-1.2px}
-  .lead{font-size:17px}
-  .section{padding:38px 0}
-  .section-head{display:block}
-  .section-head p{margin-top:10px}
-  .facts{grid-template-columns:82px 1fr;gap:9px 12px;font-size:14px}
-  .gallery{grid-template-columns:1fr}
-  .project-top{gap:10px}
-  .status{white-space:normal}
-  footer .wrap{display:block}
+  .wrap{width:calc(100% - 36px)}
+  .topline .wrap{padding:7px 0}
+  .topline span:last-child{display:none}
+  nav{padding:12px 0;align-items:flex-start}
+  .brand{font-size:15px;flex-direction:column;gap:1px;line-height:1.3}
+  .brand b{font-size:16px}
+  .links{gap:13px;font-size:13px;justify-content:flex-end}
+  .links a.nav-cta{padding:5px 10px}
+  h1{font-size:clamp(38px,10.8vw,52px);letter-spacing:-1.9px;line-height:1.04}
+  h1 .accent{white-space:nowrap}
+  .hero .lead{font-size:16px}
+  .hero-stats{gap:10px;margin-top:28px}
+  .hero-stats strong{font-size:23px}
+  .hero-stats span{font-size:9px}
+  .browser{transform:none}
+  .hero-visual::before{inset:10% -2% -2% 8%}
+  .hero-caption{display:block;line-height:1.6}
+  .hero-caption span:last-child{display:none}
+  .section{padding:52px 0}
+  .section-head h2{font-size:35px;letter-spacing:-1.5px}
+  .project-head{padding:22px 20px 20px;grid-template-columns:1fr}
+  .project-status{justify-self:start}
+  .project-body{padding:22px 20px 24px}
+  .project h3{font-size:28px;letter-spacing:-1.1px}
+  .project-goal{font-size:15px}
+  .facts{grid-template-columns:1fr}
+  .fact,.fact:nth-child(2),.fact:nth-child(3){border-right:0;border-top:1px solid var(--line)}
+  .fact:first-child{border-top:0}
+  .details-grid,.gallery{grid-template-columns:1fr}
+  .gallery{gap:12px}
+  .contact-panel{padding:26px 20px;border-radius:11px}
+  .contact-panel h2{font-size:34px;letter-spacing:-1.2px}
+  .contact-links{grid-template-columns:1fr}
+  .contact-link:first-child{grid-column:auto}
+  .contact-link{min-height:70px}
+  .ticker .wrap{gap:10px 14px;white-space:normal;flex-wrap:wrap;align-items:flex-start}
+  .ticker-track{flex-wrap:wrap;white-space:normal;overflow:visible;row-gap:5px;column-gap:8px;font-size:9px;line-height:1.7}
+  .ticker-track span::after{margin-left:8px}
 }
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  *{transition:none!important}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .btn:hover{transform:none}
 }
 @media print{
-  header,.hero-visual,.actions,footer{display:none}
   body{background:#fff;font-size:12pt}
-  .section{border-top:0;padding:18pt 0}
-  .card,.project{box-shadow:none;border:0;padding:0}
-  details{display:block}
-  details > summary{display:none}
-  details > .details-body{display:grid!important;padding-top:0}
+  body::before,header,.topline,.hero-visual,.ticker,.hero-actions,.contact-panel::before,.contact-panel::after{display:none}
+  .wrap{width:100%}
+  .hero{padding:0}
+  .section{border-top:0;padding:16pt 0}
+  .project,.about-card,.contact-panel{box-shadow:none;border:0;padding:0;background:#fff;color:var(--ink)}
+  .project-head,.project-body{padding:10pt 0}
+  .contact-panel p,.contact-panel h2{color:var(--ink)}
+  .contact-link{color:var(--ink);border-color:#ccc}
+  summary{display:none}
+  details .details-grid{display:grid!important;padding-top:8pt}
   .gallery{display:none}
 }
 </style>
@@ -154,14 +283,22 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 <body>
 <a class="skip-link" href="#main">跳到主要内容</a>
 
+<div class="topline">
+  <div class="wrap mono">
+    <span>PORTFOLIO / 2026 · XI.PU</span>
+    <span>SOFTWARE · DATA · ENGINEERING</span>
+  </div>
+</div>
+
 <header>
   <div class="wrap">
     <nav aria-label="主导航">
-      <a class="brand" href="#home">浦希 <span>/ XI.Pu</span></a>
+      <a class="brand" href="#home"><b>浦希</b><span>XI.PU</span></a>
       <div class="links">
         <a href="#projects">项目</a>
         <a href="#about">关于我</a>
         <a href="#contact">联系</a>
+        <a class="nav-cta" href="assets/resume.pdf" download="浦希-简历.pdf">简历 ↓</a>
       </div>
     </nav>
   </div>
@@ -170,160 +307,181 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 <main id="main">
   <section id="home" class="wrap hero">
     <div>
-      <div class="eyebrow">Software · Data · Engineering</div>
-      <h1>你好，我是浦希。<br><span>把问题做成可用的工具。</span></h1>
-      <p class="lead">西交利物浦大学人工智能（智能系统方向）大三学生。我关注软件开发与数据分析，也喜欢把课程里模糊的问题拆成可以运行、可以验证的功能。</p>
-      <div class="hero-meta" aria-label="个人信息">
-        <span class="pill">西交利物浦大学</span>
-        <span class="pill">人工智能 · 智能系统方向</span>
-        <span class="pill">大三 · 2024–2028</span>
-        <span class="pill">寻找软件开发 / 数据分析实习</span>
+      <div class="hero-status">
+        <span class="status-pill"><i></i> OPEN TO INTERNSHIPS</span>
+        <span class="status-pill">XJTLU · 2024–2028</span>
       </div>
-      <div class="actions">
-        <a class="button" href="#projects">查看我的项目</a>
-        <a class="button secondary" href="#contact">联系我</a>
+      <div class="kicker">AI · Software · Data</div>
+      <h1>把复杂问题，<br><span class="accent">做成可用的产品。</span></h1>
+      <p class="lead">我是浦希，西交利物浦大学人工智能（智能系统方向）大三学生。我关注软件开发与数据分析，也喜欢把课程里模糊的问题拆成可以运行、可以验证的功能。</p>
+      <div class="hero-actions">
+        <a class="btn primary" href="#projects">查看主项目 <span class="arrow">↘</span></a>
+        <a class="btn ghost" href="assets/resume.pdf" download="浦希-简历.pdf">下载简历 PDF <span class="arrow">↓</span></a>
+      </div>
+      <div class="hero-stats" aria-label="项目数据">
+        <div><strong>01</strong><span>Featured project</span></div>
+        <div><strong>07</strong><span>Product surfaces</span></div>
+        <div><strong>82</strong><span>Automated tests</span></div>
       </div>
     </div>
+
     <div class="hero-visual">
-      <figure>
-        <img src="assets/transition-overview.png" width="1440" height="1000" alt="Transition Companion 学习助手的总览页面截图" fetchpriority="high">
-        <figcaption>Transition Companion · 项目界面截图</figcaption>
-      </figure>
+      <div class="browser">
+        <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>transition-companion / overview</span></div>
+        <img src="assets/transition-overview.png" width="1440" height="1000" alt="Transition Companion 学习助手总览页面截图" fetchpriority="high">
+      </div>
+      <div class="hero-caption">
+        <span>Fig. 01 — Transition Companion</span>
+        <span>Offline-first AI study assistant</span>
+      </div>
     </div>
   </section>
+
+  <div class="ticker" aria-label="技术栈">
+    <div class="wrap">
+      <span class="ticker-label">STACK</span>
+      <div class="ticker-track">
+        <span>Python</span><span>FastAPI</span><span>Pydantic</span><span>Vanilla JS</span><span>JSON Store</span><span>pytest</span><span>Git</span>
+      </div>
+    </div>
+  </div>
 
   <section id="projects" class="wrap section">
     <div class="section-head">
       <div>
-        <div class="eyebrow">Selected Work</div>
-        <h2>精选项目</h2>
-        <p class="muted">先讲清一个问题，再说明我做了什么、怎么验证，以及还有哪里没做好。</p>
+        <div class="kicker">01 / Selected Work</div>
+        <h2>一个项目，<br>讲完整。</h2>
       </div>
+      <p class="muted">我更愿意把一个项目讲透：问题是什么、我做了什么、怎么验证，以及还有哪里没做好。</p>
     </div>
 
-    <article class="card project" aria-labelledby="project-transition-title">
-      <div class="project-top">
-        <span class="tag">团队项目 · 2026.11–至今</span>
-        <span class="status">持续迭代 · 源码整理中</span>
-      </div>
-      <h3 id="project-transition-title">Transition Companion：离线优先的 AI 学习助手</h3>
-      <p class="project-goal">面向英语授课课程的学习助手：上传 syllabus、课件或作业要求，提取课程术语，生成学术写作反馈，并把大作业拆成按提交日期执行的任务与学习日程。</p>
-
-      <dl class="facts">
-        <dt>我的角色</dt>
-        <dd>负责技术方案与实现：FastAPI 后端、原生 JS 前端、数据处理、测试与文档；队友负责原型设计和需求梳理。</dd>
-        <dt>使用技术</dt>
-        <dd>Python、FastAPI、Pydantic、原生 HTML/CSS/JavaScript、原子 JSON Store、pytest、Git</dd>
-        <dt>当前结果</dt>
-        <dd>7 个功能页面；82 项 pytest 通过；30/30 条规则引擎评估通过；无 API key 也能离线完成主要流程。</dd>
-      </dl>
-
-      <details class="project-details">
-        <summary>查看背景、方法、验证与反思</summary>
-        <div class="details-body">
-          <div class="block">
-            <h3>背景</h3>
-            <p>英语授课课程里，学生通常能读懂 syllabus，却很难判断哪些词是真正的课程术语，也很难把一个大作业拆成每天能完成的小步骤。原有版本只是一个静态页面，不能上传文件，也没有真实的数据流。</p>
+    <article class="project" aria-labelledby="project-title">
+      <div class="project-head">
+        <div>
+          <div class="project-tags">
+            <span class="tag">Team project</span>
+            <span class="tag">2026.11 — now</span>
+            <span class="tag">Full-stack</span>
           </div>
-          <div class="block">
-            <h3>方法</h3>
-            <p>采用“规则引擎优先、LLM 可选”的架构：没有 API key 时，词汇、反馈、任务拆解和日程都能运行；模型只作为增强层，失败时自动回退，并触发 60 秒熔断。PDF/DOCX/PPTX/TXT 会先提取为带页码/幻灯片标签的文本，再用于术语排序和来源引用。</p>
-          </div>
-          <div class="block">
-            <h3>作业规划</h3>
-            <p>作业要求会先识别提交物和多个 deadline，再为每个截止日期生成一个阶段，默认提前两天完成。没有可读日期时标记为“待设置”，不沿用旧任务的截止时间；任务卡支持编辑、Shift 多选批量改日期，并可一键加入周/日/月日程。</p>
-          </div>
-          <div class="block">
-            <h3>验证</h3>
-            <p>用 82 项 pytest 覆盖 API、文件上传边界、日期解析、多 deadline、存储和词汇复习；用 30 条确定性评估检查规则引擎；再用 headless Chrome 检查在线、离线和 file:// 三种渲染方式。测试重点是失败时是否有明确回退，而不只是“正常路径能跑”。</p>
-          </div>
-          <div class="block">
-            <h3>局限</h3>
-            <p>目前是单用户、本地优先版本：没有鉴权，使用 JSON 文档存储，不适合多用户并发；扫描版 PDF 和图片公式没有 OCR；模型输入仍受上下文长度限制；重启时词汇计划会重置。网站和项目都还在持续完善。</p>
-          </div>
-          <div class="block">
-            <h3>下一步</h3>
-            <p>补充登录与用户隔离，把存储迁移到 SQLite/Postgres；为扫描件加入 OCR 或视觉模型；补充真实模型质量评估；再整理一个数据分析方向的项目。</p>
-          </div>
+          <h3 id="project-title">Transition Companion<br>离线优先的 AI 学习助手</h3>
+          <p class="project-goal">上传 syllabus、课件或作业要求，提取课程术语，生成学术写作反馈，并把大作业拆成按提交日期执行的任务与学习日程。</p>
         </div>
-      </details>
-
-      <div class="gallery" aria-label="项目截图">
-        <figure>
-          <img src="assets/transition-tasks.png" width="1440" height="1000" alt="Transition Companion 的作业拆解与日期计划页面" loading="lazy">
-          <figcaption>作业要求拆成可编辑的日期计划</figcaption>
-        </figure>
-        <figure>
-          <img src="assets/transition-flashcards.png" width="1440" height="1000" alt="Transition Companion 的词汇翻卡复习页面" loading="lazy">
-          <figcaption>带课程语境的词汇翻卡复习</figcaption>
-        </figure>
+        <span class="project-status">IN ITERATION · SOURCE PRIVATE</span>
       </div>
-      <p class="repo-note">项目源码与在线演示仍在整理中，暂未公开；如果你对实现细节感兴趣，欢迎邮件交流。</p>
+
+      <div class="project-body">
+        <dl class="facts">
+          <div class="fact"><dt>My role</dt><dd><strong>技术方案与实现</strong><br>FastAPI 后端、原生 JS 前端、数据处理、测试与文档</dd></div>
+          <div class="fact"><dt>Team</dt><dd>队友负责原型设计与需求梳理；我负责实现和迭代验收</dd></div>
+          <div class="fact"><dt>Evidence</dt><dd><strong>82 / 82 tests</strong><br>7 个功能页面 · 30/30 规则评估 · 离线可用</dd></div>
+        </dl>
+
+        <figure class="project-banner">
+          <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>task-breakdown / date plan</span></div>
+          <img src="assets/transition-tasks.png" width="1440" height="1000" alt="Transition Companion 作业拆解与日期计划页面截图" loading="lazy">
+        </figure>
+
+        <div class="project-copy">
+          <div>
+            <p class="role-note"><strong>What I owned</strong>从把需求变成数据结构，到把页面做出来、把测试补齐，再到把失败路径和局限写清楚。这个项目里，我主要解决的是“怎么让功能真的能跑，并且在没网、没 key 的时候也不崩”。</p>
+            <p>采用“规则引擎优先、LLM 可选”的架构：没有 API key 时，词汇、反馈、任务拆解和日程都能运行；模型失败会自动回退，并触发 60 秒熔断。文件会先提取为带页码/幻灯片标签的文本，再用于术语排序和来源引用。</p>
+            <details class="details">
+              <summary>展开：背景、方法、验证与反思</summary>
+              <div class="details-grid">
+                <div class="detail-block"><h4>Background</h4><p>英语授课课程里，学生能读懂 syllabus，却很难判断哪些词是真正的课程术语，也很难把一个大作业拆成每天能完成的步骤。</p></div>
+                <div class="detail-block"><h4>Approach</h4><p>作业要求先识别提交物和多个 deadline，再为每个截止日期生成一个阶段，默认提前两天完成；任务日期可编辑、可批量修改，并可加入周/日/月日程。</p></div>
+                <div class="detail-block"><h4>Validation</h4><p>82 项 pytest 覆盖 API、上传边界、日期解析、多 deadline、存储和词汇复习；30 条规则评估检查确定性基线；headless Chrome 检查在线、离线和 file:// 渲染。</p></div>
+                <div class="detail-block"><h4>Limits</h4><p>单用户、无鉴权、JSON 存储、不适合多用户并发；扫描 PDF 没有 OCR；模型输入受上下文限制；重启会重置词汇计划。</p></div>
+                <div class="detail-block"><h4>Next</h4><p>补充登录与用户隔离，迁移 SQLite/Postgres；加入 OCR/vision；补充真实模型质量评估，并整理第二个数据分析项目。</p></div>
+                <div class="detail-block"><h4>What I learned</h4><p>先把失败路径设计出来，比在正常路径上堆功能更重要。离线回退、日期边界和“没有数据时不要乱猜”，都来自真实测试暴露的问题。</p></div>
+              </div>
+            </details>
+          </div>
+          <aside>
+            <div class="gallery">
+              <figure>
+                <img src="assets/transition-flashcards.png" width="1440" height="1000" alt="Transition Companion 的词汇翻卡复习页面截图" loading="lazy">
+                <figcaption>Vocabulary flashcards</figcaption>
+              </figure>
+              <figure>
+                <img src="assets/transition-overview.png" width="1440" height="1000" alt="Transition Companion 总览页面截图" loading="lazy">
+                <figcaption>Overview / adaptation</figcaption>
+              </figure>
+            </div>
+          </aside>
+        </div>
+
+        <div class="project-foot">
+          <span>源码与在线演示仍在整理中；欢迎邮件交流实现细节。</span>
+          <a href="mailto:px1229@foxmail.com">px1229@foxmail.com ↗</a>
+        </div>
+      </div>
     </article>
   </section>
 
   <section id="about" class="wrap section">
-    <div class="eyebrow">About Me</div>
-    <h2>关于我</h2>
-    <div class="about-grid">
-      <div class="card about">
-        <p>我是浦希，目前就读于西交利物浦大学人工智能（智能系统方向），大三。我的兴趣在软件开发与数据分析：把需求拆成小步骤，先做出能运行的版本，再用测试、文档和反馈继续迭代。</p>
-        <p>这个作品集里的 Transition Companion 是我参与实现的团队项目。队友负责原型设计和需求梳理，我负责技术方案、前后端实现、测试和文档。项目并不完美，但我会把做过什么、验证到什么程度、还缺什么写清楚。</p>
-        <p class="muted">目前正在寻找软件开发 / 数据分析方向的实习机会。简历可直接下载：<a href="assets/resume.pdf" download="浦希-简历.pdf">浦希简历 PDF</a>。</p>
+    <div class="section-head">
+      <div>
+        <div class="kicker">02 / About</div>
+        <h2>先理解问题，<br>再写代码。</h2>
       </div>
-      <aside class="card">
-        <div class="eyebrow">Toolbox</div>
-        <h3>常用工具</h3>
-        <ul class="skill-list" aria-label="技能">
-          <li>Python</li>
-          <li>C++</li>
-          <li>Git</li>
-          <li>FastAPI</li>
-          <li>Pydantic</li>
-          <li>HTML / CSS</li>
-          <li>JavaScript</li>
-          <li>数据分析基础</li>
-          <li>机器学习基础</li>
-        </ul>
-        <div class="note-box" style="margin-top:20px">
-          <p>我正在补充一个数据分析方向的项目；完成后会继续更新这个页面。</p>
+      <p class="muted">我在意的不只是“写出来”，还包括它为什么这样设计、失败时怎么办、别人能不能接手继续改。</p>
+    </div>
+
+    <div class="about-grid">
+      <div class="about">
+        <p>我是浦希，目前就读于西交利物浦大学人工智能（智能系统方向），大三。我的兴趣在软件开发与数据分析：把需求拆成小步骤，先做出能运行的版本，再用测试、文档和反馈继续迭代。</p>
+        <p>Transition Companion 是我参与实现的团队项目。队友负责原型设计和需求梳理，我负责技术方案、前后端实现、测试和文档。项目并不完美，但我会把做过什么、验证到什么程度、还缺什么写清楚。</p>
+        <p class="muted">目前正在寻找软件开发 / 数据分析方向的实习机会。简历可以直接下载，也欢迎邮件交流。</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="assets/resume.pdf" download="浦希-简历.pdf">下载简历 PDF <span class="arrow">↓</span></a>
+          <a class="btn ghost" href="mailto:px1229@foxmail.com">发邮件 <span class="arrow">↗</span></a>
         </div>
+      </div>
+
+      <aside class="about-card">
+        <h3>Toolbox</h3>
+        <ul class="skills" aria-label="技能">
+          <li>Python</li><li>C++</li><li>Git</li><li>FastAPI</li><li>Pydantic</li><li>HTML / CSS</li><li>JavaScript</li><li>Data analysis</li><li>Machine learning basics</li>
+        </ul>
+        <div class="education">
+          <strong>西交利物浦大学</strong>
+          <span>BSc Artificial Intelligence · Intelligent Systems</span>
+          <span>2024 — 2028 · Year 3</span>
+        </div>
+        <div class="next-note">下一个项目：数据分析方向，整理中。完成后会继续更新这个页面。</div>
       </aside>
     </div>
   </section>
 
   <section id="contact" class="wrap section">
-    <div class="eyebrow">Get In Touch</div>
-    <h2>联系我</h2>
-    <div class="contact-grid">
-      <div>
-        <p>欢迎交流软件开发、数据分析实习、课程项目或技术实现。邮件通常是最快的方式。</p>
-        <div class="contact-list">
-          <a href="mailto:px1229@foxmail.com">
-            <strong>px1229@foxmail.com</strong>
-            <span>Email</span>
-          </a>
-          <a href="https://github.com/cycy408" target="_blank" rel="noreferrer">
-            <strong>github.com/cycy408</strong>
-            <span>GitHub ↗</span>
-          </a>
-          <a href="assets/resume.pdf" download="浦希-简历.pdf">
-            <strong>浦希简历 PDF</strong>
-            <span>Download ↓</span>
-          </a>
-        </div>
+    <div class="contact-panel">
+      <div class="kicker">03 / Get in touch</div>
+      <h2>一起做点<br>有用的东西。</h2>
+      <p>欢迎交流软件开发、数据分析实习、课程项目或技术实现。邮件通常是最快的方式。</p>
+      <div class="contact-links">
+        <a class="contact-link" href="mailto:px1229@foxmail.com">
+          <small>Email</small>
+          <strong>px1229@foxmail.com ↗</strong>
+        </a>
+        <a class="contact-link" href="https://github.com/cycy408" target="_blank" rel="noreferrer">
+          <small>GitHub</small>
+          <strong>github.com/cycy408 ↗</strong>
+        </a>
+        <a class="contact-link" href="assets/resume.pdf" download="浦希-简历.pdf">
+          <small>Resume</small>
+          <strong>下载简历 PDF ↓</strong>
+        </a>
       </div>
-      <div class="note-box">
-        <p>这个网站还在持续完善，后续会补充数据分析项目和新版本的演示。当前页面不展示手机号、住址等隐私信息。</p>
-      </div>
+      <div class="contact-meta">BASED IN SUZHOU · OPEN TO SOFTWARE / DATA INTERNSHIPS · LAST UPDATED 2026.11</div>
     </div>
   </section>
 </main>
 
 <footer>
   <div class="wrap">
-    <span>浦希 XI.Pu · 最后更新：2026.11</span>
-    <span>项目截图来自本人参与的项目；页面为单文件静态 HTML。</span>
+    <span>浦希 XI.Pu · Portfolio 2026</span>
+    <span>Built as a single static page · <a href="#home">Back to top ↑</a></span>
   </div>
 </footer>
 </body>
