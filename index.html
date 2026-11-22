@@ -7,6 +7,15 @@
 <meta name="description" content="浦希（XI.Pu）的作品集：西交利物浦大学人工智能专业大三学生，关注软件开发与数据分析。记录项目背景、个人贡献、验证结果与局限。">
 <meta name="theme-color" content="#e8edf7">
 <link rel="canonical" href="https://cycy408.github.io/">
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem('portfolio-theme');
+    if (saved === 'dark' || saved === 'light') document.documentElement.dataset.theme = saved;
+    else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) document.documentElement.dataset.theme = 'dark';
+  } catch (e) {}
+})();
+</script>
 <meta property="og:type" content="website">
 <meta property="og:title" content="浦希 XI.Pu | 软件与数据作品集">
 <meta property="og:description" content="把复杂问题，做成能跑的产品。西交利物浦大学人工智能专业大三，寻找软件开发 / 数据分析实习。">
@@ -14,6 +23,7 @@
 <meta property="og:image" content="https://cycy408.github.io/assets/transition-overview.png">
 <style>
 :root{
+  color-scheme:light;
   --bg:#e8edf7;
   --surface:#ffffff;
   --soft:#f4f7ff;
@@ -25,8 +35,24 @@
   --yellow:#ffe45e;
   --navy:#151d3a;
   --line:#c8d2e6;
+  --header-bg:rgba(232,237,247,.92);
   --max:1120px;
   --sans:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;
+}
+html[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0c1322;
+  --surface:#131c2d;
+  --soft:#18243a;
+  --ink:#eef3ff;
+  --muted:#9aa8c0;
+  --blue:#7f99ff;
+  --blue-dark:#a9baff;
+  --blue-soft:#1c2e55;
+  --yellow:#ffe45e;
+  --navy:#080e1a;
+  --line:#2a3852;
+  --header-bg:rgba(12,19,34,.92);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:90px}
@@ -48,14 +74,18 @@ p{margin:0 0 18px}
 .skip-link:focus{left:16px;top:16px}
 .muted{color:var(--muted)}
 
-header{position:sticky;top:0;z-index:80;background:rgba(232,237,247,.9);border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
+header{position:sticky;top:0;z-index:80;background:var(--header-bg);border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
+.scroll-progress{position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--blue);transform:scaleX(0);transform-origin:left;transition:transform .12s linear}
 nav{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:18px 0;min-width:0}
 .brand{display:flex;align-items:baseline;gap:10px;text-decoration:none;font-weight:900;letter-spacing:-.5px}
 .brand b{font-size:19px}
 .brand span{font-size:11px;font-weight:650;letter-spacing:.3px;color:var(--muted)}
 .links{display:flex;align-items:center;gap:24px;font-size:14px;min-width:0;flex-wrap:wrap}
 .links a{text-decoration:none;color:var(--ink);padding:5px 0;border-bottom:1px solid transparent}
-.links a:hover{border-color:var(--blue)}
+.links a:hover,.links a.is-active{border-color:var(--blue)}
+.links a.is-active{color:var(--blue)}
+.theme-toggle{display:inline-flex;align-items:center;justify-content:center;width:31px;height:31px;border:1px solid var(--line);border-radius:50%;background:transparent;color:var(--ink);font:15px/1 var(--sans);cursor:pointer;padding:0}
+.theme-toggle:hover{border-color:var(--blue);color:var(--blue)}
 .links a.resume{background:var(--ink);color:var(--bg);border:1px solid var(--ink);padding:7px 13px;border-radius:2px}
 .links a.resume:hover{background:var(--blue);border-color:var(--blue);color:#fff}
 
@@ -110,11 +140,25 @@ h1{font-size:clamp(44px,5.3vw,74px);line-height:1;letter-spacing:-3.6px;margin:0
 .project-points div{padding:15px 0;border-bottom:1px solid var(--line)}
 .project-points h4{font-size:14px;line-height:1.4;margin:0 0 5px;font-weight:850}
 .project-points p{font-size:13px;line-height:1.6;margin:0}
-.project-gallery{display:grid;gap:14px}
-.project-gallery figure{margin:0;background:var(--surface);border:1px solid var(--line);padding:7px}
-.project-gallery img{width:100%;aspect-ratio:1440/1000;object-fit:cover;object-position:top left}
-.project-gallery figcaption{font-size:11px;color:var(--muted);padding:8px 1px 0}
-.project-gallery figure:nth-child(2){margin-left:32px;margin-right:-8px}
+.preview-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px}
+.preview-tabs{display:flex;flex-wrap:wrap;gap:4px}
+.preview-tab{border:1px solid var(--line);background:transparent;color:var(--muted);font:600 12px/1.2 var(--sans);padding:7px 9px;border-radius:2px;cursor:pointer;transition:background .15s ease,color .15s ease,border-color .15s ease}
+.preview-tab:hover{color:var(--blue);border-color:var(--blue)}
+.preview-tab[aria-selected="true"]{background:var(--ink);border-color:var(--ink);color:var(--surface)}
+.preview-index{font-size:11px;color:var(--muted);white-space:nowrap}
+.preview-stage{background:var(--soft);border:1px solid var(--line);padding:7px}
+.preview-stage img{width:100%;aspect-ratio:1440/1000;object-fit:cover;object-position:top left;transition:opacity .16s ease}
+.preview-stage img.is-fading{opacity:.18}
+.project-aside{border-left:1px solid var(--line);padding-left:28px}
+.aside-label{font-size:12px;font-weight:850;color:var(--blue);margin:0 0 10px}
+.proof-list{display:grid;margin:0}
+.proof-list div{display:flex;justify-content:space-between;align-items:baseline;gap:18px;padding:12px 0;border-top:1px solid var(--line)}
+.proof-list div:last-child{border-bottom:1px solid var(--line)}
+.proof-list dt{font-size:12px;color:var(--muted);font-weight:650}
+.proof-list dd{margin:0;font-size:18px;font-weight:900;letter-spacing:-.5px}
+.aside-quote{font-family:Georgia,"Songti SC",serif;font-size:19px;line-height:1.5;border-left:4px solid var(--yellow);padding:2px 0 2px 14px;margin:22px 0 0;color:var(--ink)}
+.aside-note{font-size:12px;line-height:1.6;color:var(--muted);margin:12px 0 0}
+.next-project{color:#121a2e}
 .details{border-top:1px solid var(--line);padding-top:16px;margin-top:24px}
 summary{display:flex;align-items:center;justify-content:space-between;gap:18px;list-style:none;cursor:pointer;font-size:14px;font-weight:850;color:var(--blue)}
 summary::-webkit-details-marker{display:none}
@@ -167,8 +211,8 @@ footer a{color:#dbe2f1}
   .section-head,.project-top,.project-bottom,.about-grid,.contact-grid{grid-template-columns:minmax(0,1fr);gap:28px}
   .project-main{border-right:0;border-bottom:1px solid var(--line)}
   .project-side{gap:22px}
-  .project-gallery{grid-template-columns:1fr 1fr}
-  .project-gallery figure:nth-child(2){margin:0}
+  .project-side{gap:22px}
+  .project-aside{border-left:0;border-top:1px solid var(--line);padding:20px 0 0;margin-top:4px}
   .contact-grid .intro{margin-top:0}
 }
 @media(max-width:360px){
@@ -177,11 +221,13 @@ footer a{color:#dbe2f1}
 @media(max-width:700px){
   body{font-size:16px}
   .wrap{width:calc(100% - 36px)}
-  nav{padding:13px 0;align-items:flex-start}
-  .brand{flex-direction:column;gap:1px;line-height:1.25}
+  nav{padding:13px 0;align-items:center}
+  .brand{flex-direction:row;gap:0;line-height:1.25}
   .brand b{font-size:17px}
-  .links{gap:12px;font-size:13px;justify-content:flex-end}
-  .links a.resume{padding:5px 9px}
+  .brand span{display:none}
+  .links{gap:10px;font-size:12.5px;justify-content:flex-end;flex-wrap:nowrap}
+  .links a.resume{padding:5px 8px}
+  .theme-toggle{width:27px;height:27px;font-size:13px;flex:0 0 auto}
   h1{font-size:clamp(41px,12vw,58px);letter-spacing:-2.8px;line-height:1.02}
   .hero{padding:42px 0 46px}
   .hero-intro{font-size:16px}
@@ -194,7 +240,8 @@ footer a{color:#dbe2f1}
   .project-main,.project-side,.project-bottom{padding:18px}
   .project-side h3{font-size:27px}
   .project-points,.details-body{grid-template-columns:1fr}
-  .project-gallery{grid-template-columns:1fr}
+  .preview-top{align-items:flex-start}
+  .preview-tab{font-size:11px;padding:6px 7px}
   .project-footer{padding:14px 18px}
   .about-grid{gap:30px}
   .about-copy p:first-child{font-size:17px}
@@ -209,7 +256,7 @@ footer a{color:#dbe2f1}
   *,*::before,*::after{transition:none!important}
 }
 @media print{
-  header,.hero-figure,.hero-links,.project-gallery,.contact-section{display:none}
+  header,.hero-figure,.hero-links{display:none}
   body{background:#fff;color:#000;font-size:12pt}
   .wrap{width:100%}
   .hero{padding:0}
@@ -234,10 +281,12 @@ footer a{color:#dbe2f1}
         <a href="#projects">项目</a>
         <a href="#about">关于我</a>
         <a href="#contact">联系</a>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="切换深浅色" title="切换深浅色" hidden><span id="themeIcon">☾</span></button>
         <a class="resume" href="assets/resume.pdf" download="浦希-简历.pdf">下载简历</a>
       </div>
     </nav>
   </div>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 </header>
 
 <main id="main">
@@ -278,8 +327,27 @@ footer a{color:#dbe2f1}
       <article class="project-frame" aria-labelledby="project-title">
         <div class="project-top">
           <figure class="project-main">
-            <img src="assets/transition-tasks.png" width="1440" height="1000" alt="Transition Companion 作业拆解与日期计划页面截图" loading="lazy">
-            <figcaption>作业要求会被拆成可编辑的日期计划，并可以加入周、日、月日程。</figcaption>
+            <div class="preview-top">
+              <div class="preview-tabs" role="tablist" aria-label="项目界面截图">
+                <button class="preview-tab" id="previewTab1" type="button" role="tab" aria-selected="true" aria-controls="projectPreviewStage" tabindex="0"
+                  data-src="assets/transition-tasks.png"
+                  data-alt="Transition Companion 作业拆解与日期计划页面截图"
+                  data-caption="作业要求会被拆成可编辑的日期计划，并可以加入周、日、月日程。">任务计划</button>
+                <button class="preview-tab" id="previewTab2" type="button" role="tab" aria-selected="false" aria-controls="projectPreviewStage" tabindex="-1"
+                  data-src="assets/transition-flashcards.png"
+                  data-alt="Transition Companion 词汇翻卡复习页面截图"
+                  data-caption="词汇翻卡复习：正面单词，背面是课程语境、解释和课件来源。">词汇复习</button>
+                <button class="preview-tab" id="previewTab3" type="button" role="tab" aria-selected="false" aria-controls="projectPreviewStage" tabindex="-1"
+                  data-src="assets/transition-overview.png"
+                  data-alt="Transition Companion 总览页面截图"
+                  data-caption="学习总览：今日任务、词汇进度和本周投入集中在一个页面。">学习总览</button>
+              </div>
+              <span class="preview-index" id="previewIndex">01 / 03</span>
+            </div>
+            <div class="preview-stage" id="projectPreviewStage" role="tabpanel" aria-label="项目界面预览">
+              <img id="projectPreview" src="assets/transition-tasks.png" width="1440" height="1000" alt="Transition Companion 作业拆解与日期计划页面截图" loading="lazy">
+            </div>
+            <figcaption id="projectPreviewCaption">作业要求会被拆成可编辑的日期计划，并可以加入周、日、月日程。</figcaption>
           </figure>
           <div class="project-side">
             <div>
@@ -316,16 +384,17 @@ footer a{color:#dbe2f1}
             </details>
           </div>
 
-          <div class="project-gallery">
-            <figure>
-              <img src="assets/transition-flashcards.png" width="1440" height="1000" alt="Transition Companion 词汇翻卡复习页面截图" loading="lazy">
-              <figcaption>词汇翻卡复习</figcaption>
-            </figure>
-            <figure>
-              <img src="assets/transition-overview.png" width="1440" height="1000" alt="Transition Companion 总览页面截图" loading="lazy">
-              <figcaption>学习总览与适应度</figcaption>
-            </figure>
-          </div>
+          <aside class="project-aside">
+            <p class="aside-label">验证快照</p>
+            <dl class="proof-list">
+              <div><dt>自动化测试</dt><dd>82</dd></div>
+              <div><dt>规则评估</dt><dd>30 / 30</dd></div>
+              <div><dt>功能页面</dt><dd>7</dd></div>
+              <div><dt>离线可用</dt><dd>主要流程</dd></div>
+            </dl>
+            <p class="aside-quote">“不是所有功能都该交给模型。”</p>
+            <p class="aside-note">规则引擎先跑通，模型只做增强；失败时回退，而不是白屏。这样没 key 也能演示，出了问题也能解释。</p>
+          </aside>
         </div>
 
         <div class="project-footer">
@@ -396,5 +465,111 @@ footer a{color:#dbe2f1}
     <span><a href="#home">回到顶部</a></span>
   </div>
 </footer>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var toggle = document.getElementById('themeToggle');
+  var icon = document.getElementById('themeIcon');
+
+  function applyTheme(theme, persist) {
+    root.dataset.theme = theme;
+    if (icon) icon.textContent = theme === 'dark' ? '☀' : '☾';
+    if (toggle) {
+      toggle.setAttribute('aria-label', theme === 'dark' ? '切换到浅色模式' : '切换到深色模式');
+      toggle.setAttribute('title', theme === 'dark' ? '切换到浅色模式' : '切换到深色模式');
+    }
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute('content', theme === 'dark' ? '#0c1322' : '#e8edf7');
+    if (persist) {
+      try { localStorage.setItem('portfolio-theme', theme); } catch (e) {}
+    }
+  }
+
+  if (toggle) {
+    toggle.hidden = false;
+    applyTheme(root.dataset.theme === 'dark' ? 'dark' : 'light', false);
+    toggle.addEventListener('click', function () {
+      applyTheme(root.dataset.theme === 'dark' ? 'light' : 'dark', true);
+    });
+  }
+
+  var progress = document.getElementById('scrollProgress');
+  function updateProgress() {
+    if (!progress) return;
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    var ratio = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+    progress.style.transform = 'scaleX(' + ratio + ')';
+  }
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  window.addEventListener('resize', updateProgress);
+  updateProgress();
+
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('.links a[href^="#"]'));
+  var sections = navLinks.map(function (link) {
+    return document.querySelector(link.getAttribute('href'));
+  }).filter(Boolean);
+  if ('IntersectionObserver' in window && sections.length) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        navLinks.forEach(function (link) {
+          var active = link.getAttribute('href') === '#' + entry.target.id;
+          link.classList.toggle('is-active', active);
+          if (active) link.setAttribute('aria-current', 'location');
+          else link.removeAttribute('aria-current');
+        });
+      });
+    }, { rootMargin: '-35% 0px -55% 0px' });
+    sections.forEach(function (section) { observer.observe(section); });
+  }
+
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.preview-tab'));
+  var preview = document.getElementById('projectPreview');
+  var caption = document.getElementById('projectPreviewCaption');
+  var index = document.getElementById('previewIndex');
+  var tablist = document.querySelector('.preview-tabs');
+  var current = 0;
+
+  function showPreview(next, moveFocus) {
+    if (!preview || !tabs.length) return;
+    current = (next + tabs.length) % tabs.length;
+    tabs.forEach(function (tab, i) {
+      var selected = i === current;
+      tab.setAttribute('aria-selected', selected ? 'true' : 'false');
+      tab.tabIndex = selected ? 0 : -1;
+      if (selected && moveFocus) tab.focus();
+    });
+    var tab = tabs[current];
+    preview.classList.add('is-fading');
+    window.setTimeout(function () {
+      preview.src = tab.dataset.src;
+      preview.alt = tab.dataset.alt;
+      if (caption) caption.textContent = tab.dataset.caption;
+      if (index) index.textContent = String(current + 1).padStart(2, '0') + ' / ' + String(tabs.length).padStart(2, '0');
+      preview.onload = function () { preview.classList.remove('is-fading'); };
+      window.setTimeout(function () { preview.classList.remove('is-fading'); }, 320);
+    }, 130);
+  }
+
+  tabs.forEach(function (tab, i) {
+    tab.addEventListener('click', function () { showPreview(i, false); });
+  });
+  if (tablist) {
+    tablist.addEventListener('keydown', function (event) {
+      if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+        event.preventDefault(); showPreview(current + 1, true);
+      } else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+        event.preventDefault(); showPreview(current - 1, true);
+      } else if (event.key === 'Home') {
+        event.preventDefault(); showPreview(0, true);
+      } else if (event.key === 'End') {
+        event.preventDefault(); showPreview(tabs.length - 1, true);
+      }
+    });
+  }
+})();
+</script>
+
 </body>
 </html>
